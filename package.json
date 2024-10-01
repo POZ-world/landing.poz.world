@@ -47,8 +47,8 @@
   "scripts": {
     "start:local": "REACT_APP_MASTODON_URL=http://poz.world:3000 REACT_APP_PUBLIC_URL=http://localhost:5001 PORT=5001 react-scripts start",
     "build:local": "REACT_APP_MASTODON_URL=http://poz.world:3000 REACT_APP_PUBLIC_URL=http://localhost:5001 react-scripts build",
-    "start:production": "REACT_APP_MASTODON_URL=https://poz.world REACT_APP_PUBLIC_URL=https://landing.poz.world PORT=5001 react-scripts start",
-    "build:production": "REACT_APP_MASTODON_URL=https://poz.world REACT_APP_PUBLIC_URL=https://landing.poz.world react-scripts build",
+    "start:production": "REACT_APP_MASTODON_URL=https://poz.world REACT_APP_PUBLIC_URL=https://landing.poz.world PORT=5001 CI=false react-scripts start",
+    "build:production": "REACT_APP_MASTODON_URL=https://poz.world REACT_APP_PUBLIC_URL=https://landing.poz.world CI=false react-scripts build",
     "test": "REACT_APP_MASTODON_URL=http://pozz.me:3000 REACT_APP_PUBLIC_URL=http://localhost:5001 PORT=5001 react-scripts test",
     "eject": "REACT_APP_MASTODON_URL=http://pozz.me:3000 REACT_APP_PUBLIC_URL=http://localhost:5001 PORT=5001 react-scripts eject"
   },
