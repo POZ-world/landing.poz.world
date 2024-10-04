@@ -11,7 +11,8 @@
             "type": "process",
             "options": {
                 "env": {
-                    "PATH": "/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+                    "PATH": "/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin",
+                    "REACT_APP_VERSION": "0.0.1-charlie"
                 },
                 "cwd": "${workspaceFolder}",
                 "shell": {

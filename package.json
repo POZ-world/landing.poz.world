@@ -1,6 +1,6 @@
 {
   "name": "@poz-world/landing.poz.world",
-  "version": "0.0.1-alpha",
+  "version": "0.0.1-beta",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -46,10 +46,10 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start:local": "REACT_APP_VERSION=0.0.1-alpha REACT_APP_MASTODON_URL=http://192.168.13.69:3000 REACT_APP_PUBLIC_URL=http://192.168.13.69:5001 PORT=5001 react-scripts start",
-    "build:local": "REACT_APP_VERSION=0.0.1-alpha REACT_APP_MASTODON_URL=http://192.168.13.69:3000 REACT_APP_PUBLIC_URL=http://192.168.13.69:5001 react-scripts build",
-    "start:production": "REACT_APP_MASTODON_URL=https://poz.world REACT_APP_PUBLIC_URL=https://landing.poz.world PORT=5001 CI=false react-scripts start",
-    "build:production": "REACT_APP_MASTODON_URL=https://poz.world REACT_APP_PUBLIC_URL=https://landing.poz.world CI=false react-scripts build",
+    "start:local": "REACT_APP_VERSION=${REACT_APP_VERSION:-'0.0.1-alpha'} REACT_APP_MASTODON_URL=${REACT_APP_MASTODON_URL:-'http://192.168.13.69:3000'} REACT_APP_PUBLIC_URL=${REACT_APP_PUBLIC_URL:-'http://192.168.13.69:5001'} PORT=${PORT:-'5001'} react-scripts start",
+    "build:local": "REACT_APP_VERSION=${REACT_APP_VERSION:-'0.0.1-alpha'} REACT_APP_MASTODON_URL=${REACT_APP_MASTODON_URL:-'http://192.168.13.69:3000'} REACT_APP_PUBLIC_URL=${REACT_APP_PUBLIC_URL:-'http://192.168.13.69:5001'} PORT=${PORT:-'5001'} react-scripts build",
+    "start:production": "REACT_APP_MASTODON_URL=${REACT_APP_MASTODON_URL:-'https://poz.world'} REACT_APP_PUBLIC_URL=${REACT_APP_PUBLIC_URL:-'https://landing.poz.world'} PORT=${PORT:-'5001'} CI=${CI:-'false'} react-scripts start",
+    "build:production": "REACT_APP_MASTODON_URL=${REACT_APP_MASTODON_URL:-'https://poz.world'} REACT_APP_PUBLIC_URL=${REACT_APP_PUBLIC_URL:-'https://landing.poz.world'} PORT=${PORT:-'5001'} CI=${CI:-'false'} react-scripts build",
     "test": "REACT_APP_MASTODON_URL=http://pozz.me:3000 REACT_APP_PUBLIC_URL=http://localhost:5001 PORT=5001 react-scripts test",
     "eject": "REACT_APP_MASTODON_URL=http://pozz.me:3000 REACT_APP_PUBLIC_URL=http://localhost:5001 PORT=5001 react-scripts eject"
   },
