@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Rule } from "../types/rule";
 import Loading from "../components/loading";
-import fetch from "../lib/fetch";
+import fetch from "../lib/api-fetch";
 import RulesComponent from "../components/rules";
 import GridBackground from "../components/gridBackground";
 

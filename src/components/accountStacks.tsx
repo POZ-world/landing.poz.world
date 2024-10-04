@@ -1,7 +1,7 @@
 import { LandingDirectory } from "../types/landing-directory";
 import AccountStack from "./accountStack";
 import { useEffect, useState } from "react";
-import fetch from "../lib/fetch";
+import fetch from "../lib/api-fetch";
 
 // type AccountStacksParams = {
 //     slideshows: ApiAccountJSON[][];

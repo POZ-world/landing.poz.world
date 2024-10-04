@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { PrivacyPolicy } from "../types/settings";
 import Loading from "../components/loading";
-import fetch from "../lib/fetch";
+import fetch from "../lib/api-fetch";
 import GridBackground from "../components/gridBackground";
 
 export function Privacy() {

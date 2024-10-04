@@ -1,9 +1,12 @@
+import tailwindcss from 'tailwindcss';
+import autoprefixer from 'autoprefixer';
+import postCssImport from 'postcss-import';
+
 export default {
-  content: [
-    './src/**/*.{html,js,jsx,ts,tsx,css}', // Adjust the path according to your project structure
+  plugins: [
+    postCssImport,
+    tailwindcss,
+    autoprefixer,
+    'apply',
   ],
-  plugins: {
-    tailwindcss: {},
-    autoprefixer: {},
-  },
-}
+};

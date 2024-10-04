@@ -7,5 +7,15 @@
  *     License: MIT (https://opensource.org/licenses/MIT)
  */
 
-export type Links = Link[];
+export type Links = LinkArray;
 export type Link = { url: string, description?: string, label: string, target?: string, className?: string };
+
+export class LinkArray extends Array<Link> {
+    public hash(): string {
+        return this.map(link => link.url).join('');
+    }
+
+    static fromArray(links: Link[]): LinkArray {
+        return new LinkArray(...links);
+    }
+}

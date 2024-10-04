@@ -1,0 +1,66 @@
+# 
+# dependabot.yml
+#     Created: 2024-10-03T13:48:42-04:00
+#    Modified: 2024-10-03T13:48:42-04:00
+#      Author: Justin Paul Chase <justin@justinwritescode.com>
+#   Copyright: © 2024 Justin Paul Chase, All Rights Reserved
+#     License: MIT (https://opensource.org/licenses/MIT)
+# 
+
+# To get started with Dependabot version updates, you'll need to specify which
+# package ecosystems to update and where the package manifests are located.
+# Please see the documentation for all configuration options:
+# https://docs.github.com/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file
+
+version: 2
+updates:
+  - package-ecosystem: "bundler" # See documentation for possible values
+    directory: "/" # Location of package manifests
+    schedule:
+      interval: "daily"
+    assignees:
+        - hivchaser
+        - justinwritescode
+    commit-message:
+        prefix: '[rubygems]: '
+        include: "scope"
+  - package-ecosystem: "npm" # See documentation for possible values
+    directory: "/" # Location of package manifests
+    schedule:
+      interval: "daily"
+    assignees:
+      - hivchaser
+      - justinwritescode
+    commit-message:
+      prefix: '[npm]: '
+      include: "scope"
+  - package-ecosystem: "github-actions" # See documentation for possible values
+    directory: "/" # Location of package manifests
+    schedule:
+      interval: "daily"
+    assignees:
+      - hivchaser
+      - justinwritescode
+    commit-message:
+      prefix: '[github-actions]: '
+      include: "scope"
+  - package-ecosystem: "docker" # See documentation for possible values
+    directory: "/" # Location of package manifests
+    schedule:
+      interval: "daily"
+    assignees:
+      - hivchaser
+      - justinwritescode
+    commit-message:
+      prefix: '[docker]: '
+      include: "scope"
+  - package-ecosystem: "gitsubmodule" # See documentation for possible values
+    directory: "/" # Location of package manifests
+    schedule:
+      interval: "daily"
+    assignees:
+      - hivchaser
+      - justinwritescode
+    commit-message:
+      prefix: '[docker]: '
+      include: "scope"

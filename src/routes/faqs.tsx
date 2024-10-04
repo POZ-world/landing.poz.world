@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Faq } from "../types/faq";
 import Loading from "../components/loading";
-import fetch from "../lib/fetch";
+import fetch from "../lib/api-fetch";
 import FAQsComponent from "../components/faqs";
 import GridBackground from "../components/gridBackground";
 import HeaderElements from "../components/headerElements";
@@ -25,6 +25,8 @@ export function FAQs() {
 
         fetchData();
     }, []);  // The empty array ensures this effect runs only once
+
+    useEffect(() => { }, [expanded]);
 
     const toggleExpanded = (index: number) => {
         setExpanded(expanded === index ? -1 : index);

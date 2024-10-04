@@ -2,6 +2,7 @@ import React from 'react';
 import { Rule } from "../types/rule";
 import Loading from "./loading";
 import './accordion.css';
+import { Transition } from '@headlessui/react';
 
 interface RulesProps {
   rules: Rule[];
@@ -26,14 +27,22 @@ export default function Rules({ rules, expanded, toggleExpanded }: RulesProps): 
               Rule #{index + 1}
             </span>
             <span className="block text-lg dark:text-white tracking-widest leading-8" dangerouslySetInnerHTML={{ __html: rule.text }} />
-            {expanded === index && (
+            <Transition
+              show={expanded === index}
+              enter="transition-opacity duration-300"
+              enterFrom="opacity-0"
+              enterTo="opacity-100"
+              leave="transition-opacity duration-300"
+              leaveFrom="opacity-100"
+              leaveTo="opacity-0"
+            >
               <div className="accordion-content expanded">
                 <span
                   className="block text-md dark:text-gray-400 pt-2"
                   dangerouslySetInnerHTML={{ __html: rule.hint }}
                 />
               </div>
-            )}
+            </Transition>
           </li>
         ))}
       </ul>

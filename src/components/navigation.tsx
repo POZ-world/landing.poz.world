@@ -1,15 +1,16 @@
 import { MASTODON_URL } from "../mastodon-url";
 import { PUBLIC_URL } from "../public-url";
 import Logo from "./logo";
-import { Links } from "../types/links";
+import { Link, LinkArray } from "../types/links";
 import LinkRow from "./linkrow";
 import { useState, useEffect } from "react";
 import Loading from "../components/loading";
-import fetch from "../lib/fetch";
+import fetch from "../lib/api-fetch";
 import Hyperlink from "./hyperlink";
 import { InstanceVNext } from "../types/instance";
+import Version from "./versions";
 
-const header_links: Links = [
+const header_links: Link[] = [
     { url: `${PUBLIC_URL}/`, label: 'About', target: '_self', description: 'Learn more about POZ.world' },
     { url: `${PUBLIC_URL}/faqs`, label: 'FAQs', target: '_self', description: 'Frequently asked questions' },
     { url: `${PUBLIC_URL}/privacy`, label: 'Privacy', target: '_self', description: 'Learn about our privacy policy' },
@@ -17,7 +18,7 @@ const header_links: Links = [
     { url: `${PUBLIC_URL}/terms`, label: 'TOS', target: '_self', description: 'Read the terms of service' },
 ];
 
-const footer_links: Links[] = [[
+const footer_links: Link[][] = [[
     { url: `https://status.poz.world`, label: 'Status', target: '_blank', description: 'Check the status of the POZ.world services' },
     { url: `${MASTODON_URL}/directory`, label: 'Members', target: '_blank', description: 'Browse the members directory' },
     { url: `${MASTODON_URL}/invites`, label: 'Invite', target: '_blank', description: 'Invite friends to join POZ.world' },
@@ -45,7 +46,7 @@ export function Header() {
             </div>
             <div className="flex">
                 <div className="justify-center flex-1 flex gap-12 font-bold text-md">
-                    <LinkRow links={header_links} />
+                    <LinkRow links={LinkArray.fromArray(header_links)} />
                 </div>
             </div>
             <div className="hidden lg:flex lg:flex-1 lg:justify-end">
@@ -87,7 +88,7 @@ export function Footer() {
                 footer_links.map((row, index) => {
                     return (
                         <div key={index}>
-                            <LinkRow links={row} />
+                            <LinkRow links={LinkArray.fromArray(row)} />
                         </div>
                     )
                 })
@@ -104,6 +105,7 @@ export function Footer() {
                 </a>
             </div>
             <p className="text-sm">© {new Date().getFullYear()} {instance.title}. All rights reserved.</p>
+            <Version instance={instance} />
         </div>
     ) : (<Loading />);
 }

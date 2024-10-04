@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { InstanceVNext } from "../types/instance";
-import fetch from "../lib/fetch";
+import fetch from "../lib/api-fetch";
 import Loading from "../components/loading";
 import InstanceStats from "../components/instanceStats";
 import GridBackground from "../components/gridBackground";

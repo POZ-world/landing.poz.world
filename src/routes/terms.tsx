@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import Loading from "../components/loading";
-import fetch from "../lib/fetch";
+import fetch from "../lib/api-fetch";
 import GridBackground from "../components/gridBackground";
 
 export default function Terms() {

@@ -36,6 +36,7 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
@@ -49,70 +50,35 @@
 @layer base {
   html {
     font-family: "OpenSans", sans-serif;
-    @apply 
-      bg-white
-      dark:bg-[#1f232b]
-      text-gray-700
-      dark:text-neutral-100
-      tracking-wide
-      leading-8
-      font-light
-      min-h-screen
+    @apply bg-white dark:bg-[#1f232b] text-gray-700 dark:text-neutral-100 tracking-wide leading-8 font-light min-h-screen;
   }
 }
 
 .title {
-  @apply 
-    text-3xl
-    md:text-5xl
-    lg:text-6xl
-    tracking-tight
-    my-4
-    text-gray-900 
-    dark:text-gray-100
+  @apply text-3xl md:text-5xl lg:text-6xl tracking-tight my-4 text-gray-900 dark:text-gray-100;
 }
 
-.subtitle, h1, h2 {
-  @apply 
-    text-2xl
-    lg:text-4xl
-    font-bold 
-    tracking-tight
-    my-4
-    text-gray-900 
-    dark:text-gray-100
+.subtitle,
+h1,
+h2 {
+  @apply text-2xl lg:text-4xl font-bold tracking-tight my-4 text-gray-900 dark:text-gray-100;
 }
 
-.title, .subtitle {
-  @apply 
-    lg:leading-[4rem];
+.title,
+.subtitle {
+  @apply lg:leading-[4rem];
 }
 
 .button {
-  @apply 
-    font-bold 
-    px-3.5
-    py-2
-    rounded-md 
-    text-lg
-    sm:text-2xl
-    shadow-sm
-    items-center
+  @apply font-bold px-3.5 py-2 rounded-md text-lg sm:text-2xl shadow-sm items-center;
 }
 
 .button-small {
-  @apply 
-    font-bold 
-    px-3.5
-    py-2
-    rounded-md 
-    text-lg 
-    shadow-sm
-    items-center
+  @apply font-bold px-3.5 py-2 rounded-md text-lg shadow-sm items-center;
 }
 
-
-.markdown b, .markdown strong {
+.markdown b,
+.markdown strong {
   font-weight: bolder;
   font-style: italic;
   @apply font-bold;
@@ -132,7 +98,7 @@
 }
 
 .markdown a {
-  @apply hover:text-blue-700 dark:hover:text-blue-300 transition-colors
+  @apply hover:text-blue-700 dark:hover:text-blue-300 transition-colors;
 }
 
 .markdown p {
@@ -141,8 +107,5 @@
 }
 
 .center {
-  @apply 
-    flex
-    justify-center
-    items-center
+  @apply flex justify-center items-center;
 }

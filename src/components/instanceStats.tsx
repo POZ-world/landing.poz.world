@@ -10,6 +10,7 @@ export default function InstanceStats({ stats }: InstanceStatsParams) {
 
     return (
         <dl className="flex flex-row lg:flex-col gap-y-8 gap-x-12 text-center lg:text-left justify-center">
+            <div>Our Stats:</div>
             {
                 [
                     {
