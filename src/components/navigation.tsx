@@ -9,6 +9,7 @@ import fetch from "../lib/api-fetch";
 import Hyperlink from "./hyperlink";
 import { InstanceVNext } from "../types/instance";
 import Version from "./versions";
+import LoginPartial from "./loginPartial";
 
 const header_links: Link[] = [
     { url: `${PUBLIC_URL}/`, label: 'About', target: '_self', description: 'Learn more about POZ.world' },
@@ -53,7 +54,7 @@ export function Header() {
                 {/* <a href={`${MASTODON_URL}/auth/sign_in`} type="button" className="inline-flex button-small bg-indigo-600 hover:bg-indigo-700 text-white">
                     <span>Log in</span>
                 </a> */}
-                <Hyperlink link={log_in} />
+                <LoginPartial />
             </div>
         </nav>
     );

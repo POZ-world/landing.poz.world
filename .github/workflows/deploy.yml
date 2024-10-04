@@ -16,10 +16,10 @@ concurrency:
 permissions: write-all
 
 jobs:
-  build_and_deploy_job:
+  build:
     if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed')
     runs-on: ubuntu-latest
-    name: Build and Deploy Job
+    name: Build the App
 
     steps:
       - uses: thefringeninja/action-minver@2.0.0-preview1
@@ -51,7 +51,25 @@ jobs:
           REACT_APP_VERSION: ${{ steps.minver.outputs.version }}
           REACT_APP_PUBLIC_URL: https://landing.poz.world
           REACT_APP_MASTODON_URL: https://poz.world
-      - name: Build And Deploy
+          CI: 'false'
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4.4.0
+        with:
+          name: build
+          path: build
+          
+  deploy-to-azure-static-website:
+    runs-on: ubuntu-latest
+    name: Deploy to Azure Static Website
+    needs: build
+    steps:
+      - name: Download artifact
+        uses: actions/download-artifact@v4.1.8
+        with:
+          name: build
+          
+      - name: Deploy to Azure Static Website
         id: builddeploy
         uses: Azure/static-web-apps-deploy@v1
         with:
@@ -60,11 +78,31 @@ jobs:
           action: "upload"
           ###### Repository/Build Configurations - These values can be configured to match your app requirements. ######
           # For more information regarding Static Web App workflow configurations, please visit: https://aka.ms/swaworkflowconfig
-          app_location: "/build" # App source code path
+          app_location: "." # App source code path
           api_location: "" # Api source code path - optional
-          output_location: "build" # Built app content directory - optional
+          output_location: "." # Built app content directory - optional
           skip_app_build: true
           ###### End of Repository/Build Configurations ######
+
+  deploy-to-azure-storage:
+    runs-on: ubuntu-latest
+    name: Deploy to Azure Storage
+    needs: build
+    steps:
+      - name: Download artifact
+        uses: actions/download-artifact@v4.1.8
+        with:
+          name: build
+      - uses: LanceMcCarthy/Action-AzureBlobUpload@v3.1.5
+        with:
+          connection_string: ${{ secrets.POZ_WORLD_AZURE_STORAGE_CONNECTION_STRING }}
+          container_name: landing
+          source_folder: ./
+          destination_folder: / # optional
+          clean_destination_folder: true # optional
+          fail_if_source_empty: true # optional
+          is_recursive: true # optional, default is true
+          delete_if_exists: true # optional
 
   close_pull_request_job:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'

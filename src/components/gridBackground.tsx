@@ -1,4 +1,4 @@
-import biohazard from '../biohazard.svg';
+import biohazard from '../biohazard-lighter.svg';
 
 export default function GridBackground() {
     return (
