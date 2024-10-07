@@ -12,28 +12,28 @@ import Version from "./versions";
 import LoginPartial from "./loginPartial";
 
 const header_links: Link[] = [
-    { url: `${PUBLIC_URL}/`, label: 'About', target: '_self', description: 'Learn more about POZ.world' },
-    { url: `${PUBLIC_URL}/faqs`, label: 'FAQs', target: '_self', description: 'Frequently asked questions' },
-    { url: `${PUBLIC_URL}/privacy`, label: 'Privacy', target: '_self', description: 'Learn about our privacy policy' },
-    { url: `${PUBLIC_URL}/rules`, label: 'Rules', target: '_self', description: 'Read the rules of the community' },
-    { url: `${PUBLIC_URL}/terms`, label: 'TOS', target: '_self', description: 'Read the terms of service' },
+    { action: `${PUBLIC_URL}/`, label: 'About', target: '_self', description: 'Learn more about POZ.world' },
+    { action: `${PUBLIC_URL}/faqs`, label: 'FAQs', target: '_self', description: 'Frequently asked questions' },
+    { action: `${PUBLIC_URL}/privacy`, label: 'Privacy', target: '_self', description: 'Learn about our privacy policy' },
+    { action: `${PUBLIC_URL}/rules`, label: 'Rules', target: '_self', description: 'Read the rules of the community' },
+    { action: `${PUBLIC_URL}/terms`, label: 'TOS', target: '_self', description: 'Read the terms of service' },
 ];
 
 const footer_links: Link[][] = [[
-    { url: `https://status.poz.world`, label: 'Status', target: '_blank', description: 'Check the status of the POZ.world services' },
-    { url: `${MASTODON_URL}/directory`, label: 'Members', target: '_blank', description: 'Browse the members directory' },
-    { url: `${MASTODON_URL}/invites`, label: 'Invite', target: '_blank', description: 'Invite friends to join POZ.world' },
-    { url: `${MASTODON_URL}/explore`, label: 'Explore', target: '_blank', description: 'Explore the POZ.world network' },
+    { action: `https://status.poz.world`, label: 'Status', target: '_blank', description: 'Check the status of the POZ.world services' },
+    { action: `${MASTODON_URL}/directory`, label: 'Members', target: '_blank', description: 'Browse the members directory' },
+    { action: `${MASTODON_URL}/invites`, label: 'Invite', target: '_blank', description: 'Invite friends to join POZ.world' },
+    { action: `${MASTODON_URL}/explore`, label: 'Explore', target: '_blank', description: 'Explore the POZ.world network' },
 ],
 [
-    { url: `https://joinmastodon.org/`, label: 'Mastodon', target: '_blank', description: 'Learn more about Mastodon, the software the powers POZ.world' },
-    { url: `https://joinmastodon.org/apps`, label: 'Apps', target: '_blank', description: 'Find Mastodon apps for your device' },
-    { url: `https://github.com/justinwritescode/mastodon/tree/poz.world`, label: 'Source', target: '_blank', description: 'View the source code for POZ.world' },
-    { url: `https://github.com/poz-world/landing.poz.world`, label: 'Source (Landing)', target: '_blank', description: 'View the source code for the POZ.world landing page' },
+    { action: `https://joinmastodon.org/`, label: 'Mastodon', target: '_blank', description: 'Learn more about Mastodon, the software the powers POZ.world' },
+    { action: `https://joinmastodon.org/apps`, label: 'Apps', target: '_blank', description: 'Find Mastodon apps for your device' },
+    { action: `https://github.com/justinwritescode/mastodon/tree/poz.world`, label: 'Source', target: '_blank', description: 'View the source code for POZ.world' },
+    { action: `https://github.com/poz-world/landing.poz.world`, label: 'Source (Landing)', target: '_blank', description: 'View the source code for the POZ.world landing page' },
 ]];
 
-const log_in = { url: `${MASTODON_URL}/auth/sign_in`, label: 'Log in', target: '_self', className: 'inline-flex button-small bg-indigo-600 hover:bg-indigo-700 text-white' };
-const create_account = { url: `${MASTODON_URL}/auth/sign_up`, label: '<span>Create Account</span>', target: '_self', className: 'button inline-flex bg-indigo-600 hover:bg-indigo-700 text-white animate-wiggle' };
+const log_in: Link = { action: `${MASTODON_URL}/auth/sign_in`, label: 'Log in', target: '_self', className: 'inline-flex button-small bg-indigo-600 hover:bg-indigo-700 text-white' };
+const create_account: Link = { action: `${MASTODON_URL}/auth/sign_up`, label: '<span>Create Account</span>', target: '_self', className: 'button inline-flex bg-indigo-600 hover:bg-indigo-700 text-white animate-wiggle' };
 
 // Join <green heart emoji> to the right
 const linkClasses = 'hover:text-blue-700 dark:hover:text-blue-300'

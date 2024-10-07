@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { Faq } from '../types/faq';
 import FAQ from './faq';
 import Loading from './loading';
+import Accordion from 'react-bootstrap/Accordion';
+
 
 type FAQsProps = {
   faqs: Faq[];

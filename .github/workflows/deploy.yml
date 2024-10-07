@@ -93,7 +93,7 @@ jobs:
         uses: actions/download-artifact@v4.1.8
         with:
           name: build
-      - uses: LanceMcCarthy/Action-AzureBlobUpload@v3.1.5
+      - uses: LanceMcCarthy/Action-AzureBlobUpload@v3.2.0
         with:
           connection_string: ${{ secrets.POZ_WORLD_AZURE_STORAGE_CONNECTION_STRING }}
           container_name: landing

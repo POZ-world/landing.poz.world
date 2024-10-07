@@ -12,7 +12,7 @@ const LinkRow = ({ links }: LinkRowParams) => {
             {links.map((link, index) => {
                 link.className = linkClasses;
                 return (
-                    <Hyperlink link={link} id={link.url} key={link.url} />
+                    <Hyperlink link={link} id={link.action} key={link.action.toString()} />
                 )
             })}
         </div>

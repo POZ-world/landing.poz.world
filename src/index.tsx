@@ -9,6 +9,7 @@ import Layout from './components/layout';
 import Rules from './routes/rules';
 import Index from './routes/index';
 import Terms from './routes/terms';
+import EditProfileFields from './routes/edit-profile-fields';
 
 // Define the routes with Layout as the parent route
 const routes: RouteObject[] = [
@@ -35,6 +36,10 @@ const routes: RouteObject[] = [
       {
         path: 'terms',
         element: <Terms />,
+      },
+      {
+        path: 'my-profile',
+        element: <EditProfileFields />,
       },
     ],
   },

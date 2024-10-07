@@ -8,11 +8,15 @@
  */
 
 export type Links = LinkArray;
-export type Link = { url: string, description?: string, label: string, target?: string, className?: string };
+export type Action = { (): any };
+export type Link = { action: string|Action, description?: string, label: string, target?: LinkTarget, className?: string, method?: HttpMethod };
+export type LinkButton = Link & { action: { (): any } }
+export type LinkTarget = '_blank' | '_self' | '_parent' | '_top';
+export type HttpMethod = 'GET' | 'POST' | 'PUT' | 'DELETE';
 
 export class LinkArray extends Array<Link> {
     public hash(): string {
-        return this.map(link => link.url).join('');
+        return this.map(link => link.action).join('');
     }
 
     static fromArray(links: Link[]): LinkArray {
