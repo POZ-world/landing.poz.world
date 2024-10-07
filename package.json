@@ -22,7 +22,7 @@
     "@tailwindcss/aspect-ratio": "^0.4.2",
     "@tailwindcss/jit": "^0.1.18",
     "@testing-library/jest-dom": "^6.5.0",
-    "@testing-library/react": "^16.0.0",
+    "@testing-library/react": "^16.0.1",
     "@testing-library/user-event": "^14.0.0",
     "@types/axios": "^0.14.0",
     "@types/marked": "^6.0.0",
