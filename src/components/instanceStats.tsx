@@ -1,5 +1,6 @@
 import { InstanceStats as _instanceStats } from "../types/instance";
 import Loading from "./loading";
+import React from "react";
 
 type InstanceStatsParams = {
     stats: _instanceStats;

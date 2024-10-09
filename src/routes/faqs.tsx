@@ -5,6 +5,7 @@ import fetch from "../lib/api-fetch";
 import FAQsComponent from "../components/faqs";
 import GridBackground from "../components/gridBackground";
 import HeaderElements from "../components/headerElements";
+import React from "react";
 
 export function FAQs() {
     const [faqs, setFaqs] = useState<Faq[]>([]);

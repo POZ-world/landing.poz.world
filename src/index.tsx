@@ -1,15 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import reportWebVitals from './reportWebVitals';
-import { createBrowserRouter, RouterProvider, RouteObject } from 'react-router-dom';
+import { createBrowserRouter, RouterProvider, RouteObject, BrowserRouter } from 'react-router-dom';
+import { Provider } from 'react-redux';
 import { FAQs } from './routes/faqs';
 import { Privacy } from './routes/privacy';
 import Layout from './components/layout';
 import Rules from './routes/rules';
-import Index from './routes/index';
+import About from './routes/about';
 import Terms from './routes/terms';
 import EditProfileFields from './routes/edit-profile-fields';
+import { createRoot } from 'react-dom/client';
+import ErrorHandler from './components/errorHandler';
+import ScrollToTop from './components/scrollToTop';
+import App from './App';
+import { configureStore } from '@reduxjs/toolkit';
 
 // Define the routes with Layout as the parent route
 const routes: RouteObject[] = [
@@ -19,7 +24,7 @@ const routes: RouteObject[] = [
     children: [
       {
         path: '',
-        element: <Index />,
+        element: <About />,
       },
       {
         path: 'privacy',
@@ -47,18 +52,19 @@ const routes: RouteObject[] = [
 
 const router = createBrowserRouter(routes);
 
-const rootElement = document.getElementById('root');
-if (rootElement) {
-  ReactDOM.createRoot(rootElement).render(
-    <React.StrictMode>
-      <RouterProvider router={router} />
-    </React.StrictMode>
-  );
-} else {
-  console.error('Root element not found');
-}
+const root = createRoot(document.getElementById('root')!);
+root.render( // eslint-disable-line @typescript-eslint/no-non-null-assertion
+  <Provider store={store}>
+    <BrowserRouter basename={pack.homepage}>
+      <ErrorHandler>
+        <ScrollToTop>
+          <App />
+        </ScrollToTop>
+      </ErrorHandler>
+    </BrowserRouter>
+  </Provider>,
+);
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();

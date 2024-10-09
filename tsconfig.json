@@ -1,61 +1,49 @@
 {
   "compilerOptions": {
-    "target": "ES5",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
-    "outDir": "./dist",
-    "allowJs": true,
-    "skipLibCheck": true,
+    "target": "es5",
+    "module": "amd",
+    "moduleResolution": "node",
+    "strict": true,
+    "jsx": "react",
     "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
+    "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-    "noFallthroughCasesInSwitch": true,
-    "module": "NodeNext",
-    "moduleResolution": "NodeNext",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "noEmit": true,
-    "jsx": "react-jsx",
-    "noImplicitAny": false,
-    "baseUrl": "./src",
-    "strict": false,
-    "alwaysStrict": false,
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "baseUrl": "./",
+    "outFile": "./dist/bundle.js",
     "paths": {
-      "mastodon": [
-        "./node_modules/@poz-world/poz.world/"
+      "emoji-mart/dist/utils/data": [
+        "./node_modules/emoji-mart-lazyload/dist/utils/data"
       ],
-      "mastodon/*": [
-        "./node_modules/@poz-world/poz.world/mastodon/*"
+      "emoji-mart/data/all.json": [
+        "./node_modules/emoji-mart-lazyload/data/all.json"
       ],
-      "mastodon/features/*": [
-        "./node_modules/@poz-world/poz.world/mastodon/*"
+      "emoji-mart/": [
+        "./node_modules/emoji-mart-lazyload/dist/"
       ],
-      "mastodon/features/emoji/emoji": [
-        "./node_modules/@poz-world/poz.world/mastodon/features/emoji/emoji"
+      "emoji_compressed/": [
+        "@poz-world/poz.world/mastodon/features/emoji/emoji_compressed"
       ],
-      "mastodon/api_types/custom_emoji": [
-        "./node_modules/@poz-world/poz.world/mastodon/api_types/custom_emoji"
-      ],
-      "mastodon/api_types/accounts": [
-        "./node_modules/@poz-world/poz.world/mastodon/api_types/accounts"
-      ],
-      "mastodon/utils/html": [
-        "./node_modules/@poz-world/poz.world/mastodon/utils/html"
-      ],
-      "mastodon/api/types/accounts": [
-        "./node_modules/@poz-world/poz.world/mastodon/api/types/accounts"
-      ],
-      "@/*": [
-        "./node_modules/*"
-      ],
-      "mastodon/api": [
-        "./src/api"
-      ]
-    }
+    },
+    "resolveJsonModule": true,
   },
-  "include": [ "src" ],
-  "exclude": [ "./node_modules" ]
+  // "files": [
+  //   "src",
+  // ],
+  "include": [
+    "src/**/*.js",
+    "src/**/*.jsx",
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "src/**/*.json",
+    "src/**/*.svg",
+    "src/**/*.png",
+    "src/**/*.jpg",
+    "src/**/*.jpeg",
+  ],
+  "exclude": [
+    "node_modules",
+    "dist"
+  ]
 }

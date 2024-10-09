@@ -10,6 +10,7 @@ import Hyperlink from "./hyperlink";
 import { InstanceVNext } from "../types/instance";
 import Version from "./versions";
 import LoginPartial from "./loginPartial";
+import React from "react";
 
 const header_links: Link[] = [
     { action: `${PUBLIC_URL}/`, label: 'About', target: '_self', description: 'Learn more about POZ.world' },

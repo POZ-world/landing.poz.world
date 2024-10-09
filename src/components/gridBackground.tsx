@@ -1,4 +1,5 @@
 import biohazard from '../biohazard-lighter.svg';
+import React from "react";
 
 export default function GridBackground() {
     return (

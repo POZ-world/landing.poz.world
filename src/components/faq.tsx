@@ -1,7 +1,8 @@
 import { Disclosure, DisclosureButton, DisclosurePanel, Transition } from '@headlessui/react';
-import { MinusIcon, PlusIcon } from '@heroicons/react/solid';
+import { MinusIcon, PlusIcon } from '@heroicons/react/24/solid';
 import { Faq } from '../types/faq';
 import { marked } from 'marked';
+import React from "react";
 
 type FAQProps = {
     faq: Faq;

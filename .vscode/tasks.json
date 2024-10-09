@@ -19,6 +19,23 @@
                     "executable": "bash"
                 }
             }
+        },
+        {
+            "label": "Build landing.poz.world",
+            "command": "npm",
+            "args": [
+                "run",
+                "build"
+            ],
+        },
+        {
+            "dependsOn": "Build landing.poz.world",
+            "label": "Package landing.poz.world",
+            "command": "npm",
+            "args": [
+                "run",
+                "build"
+            ],
         }
     ]
 }

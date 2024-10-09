@@ -1,0 +1,25 @@
+{
+    "compilerOptions": {
+        "baseUrl": "./",
+        "paths": {
+            "mastodon": [
+                "./node_modules/@poz-world/poz.world/mastodon"
+            ],
+            "mastodon/*": [
+                "./node_modules/@poz-world/poz.world/mastodon/*"
+            ],
+            "mastodon/features/*": [
+                "./node_modules/@poz-world/poz.world/mastodon/*"
+            ],
+            "mastodon/features/emoji/emoji": [
+                "n./ode_modules/@poz-world/poz.world/mastodon/features/emoji/emoji"
+            ],
+            "mastodon/utils/html": [
+                "./node_modules/@poz-world/poz.world/mastodon/utils/html"
+            ],
+            "@/*": [
+                "./node_modules/*"
+            ]
+        }
+    }
+}

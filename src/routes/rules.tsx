@@ -4,6 +4,7 @@ import Loading from "../components/loading";
 import fetch from "../lib/api-fetch";
 import RulesComponent from "../components/rules";
 import GridBackground from "../components/gridBackground";
+import React from "react";
 
 export default function Rules() {
     const [rules, setRules] = useState<Rule[]>([]);

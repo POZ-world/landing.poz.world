@@ -2,6 +2,7 @@ import { LandingDirectory } from "../types/landing-directory";
 import resizeAvatar from "../lib/resizeAvatar";
 import { MASTODON_URL } from "../mastodon-url";
 import { DEFAULT_DIRECTORY_LIMIT } from "../lib/constants";
+import React from "react";
 
 type AccountListParams = {
     directory: LandingDirectory;

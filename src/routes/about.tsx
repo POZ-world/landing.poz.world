@@ -8,8 +8,9 @@ import { LandingDirectory } from "../types/landing-directory";
 import AccountStacks from "../components/accountStacks";
 import AccountList from "../components/accountList";
 import { DEFAULT_DIRECTORY_LIMIT } from "../lib/constants";
+import React from "react";
 
-export default function Index() {
+export default function About() {
     const [instance, setInstance] = useState<InstanceVNext>({} as InstanceVNext);
     const [directoryLimit, setDirectoryLimit] = useState(DEFAULT_DIRECTORY_LIMIT);
     const [directory, setDirectory] = useState<LandingDirectory>([] as LandingDirectory);

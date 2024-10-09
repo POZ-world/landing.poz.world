@@ -3,6 +3,7 @@ import { PrivacyPolicy } from "../types/settings";
 import Loading from "../components/loading";
 import fetch from "../lib/api-fetch";
 import GridBackground from "../components/gridBackground";
+import React from "react";
 
 export function Privacy() {
     const [privacyPolicy, setPrivacyPolicy] = useState<PrivacyPolicy>({} as PrivacyPolicy);

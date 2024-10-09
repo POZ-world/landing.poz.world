@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { InstanceVNext } from "../types/instance";
 import fetch from "../lib/api-fetch";
 import { Helmet } from "react-helmet";
+import React from "react";
 
 type HeaderElementsProps = {
     title: string;

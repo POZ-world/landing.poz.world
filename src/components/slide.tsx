@@ -2,6 +2,7 @@ import { ApiAccountJSON } from "../api_types/accounts";
 import resizeAvatar from "../lib/resizeAvatar";
 import { MASTODON_URL } from '../mastodon-url';
 import { SLIDESHOW_ANCHOR_CLASS, SLIDESHOW_IMAGE_SPACING } from "../lib/constants";
+import React from "react";
 
 type SlideProps = {
     account: ApiAccountJSON;

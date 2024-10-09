@@ -1,5 +1,6 @@
 import { InstanceVNext } from "../types/instance";
 import VERSION from "../version";
+import React from "react";
 
 export default function Versions({ instance }: { instance: InstanceVNext }) {
     return (

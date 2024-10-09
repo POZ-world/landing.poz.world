@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import Loading from "../components/loading";
 import fetch from "../lib/api-fetch";
 import GridBackground from "../components/gridBackground";
+import React from "react";
 
 export default function Terms() {
     const [terms, setTerms] = useState<string>("");

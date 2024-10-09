@@ -1,5 +1,6 @@
 import { Links } from "../types/links";
 import Hyperlink from "./hyperlink";
+import React from "react";
 
 type LinkRowParams = {
     links: Links;
