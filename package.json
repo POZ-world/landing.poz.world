@@ -75,12 +75,12 @@
   },
   "scripts": {
     "build": "tsc",
-    "start:local": "REACT_APP_VERSION=${REACT_APP_VERSION:-'0.0.1-alpha'} REACT_APP_MASTODON_URL=${REACT_APP_MASTODON_URL:-'http://poz.world:3000'} REACT_APP_PUBLIC_URL=${REACT_APP_PUBLIC_URL:-'http://landing.poz.world:5001'} PORT=${PORT:-'5001'} craco start",
-    "build:local": "REACT_APP_VERSION=${REACT_APP_VERSION:-'0.0.1-alpha'} REACT_APP_MASTODON_URL=${REACT_APP_MASTODON_URL:-'http://poz.world:3000'} REACT_APP_PUBLIC_URL=${REACT_APP_PUBLIC_URL:-'http://landing.poz.world:5001'} PORT=${PORT:-'5001'} ts-node --esm node_modules/.bin/craco build",
-    "start:production": "REACT_APP_MASTODON_URL=${REACT_APP_MASTODON_URL:-'https://poz.world'} REACT_APP_PUBLIC_URL=${REACT_APP_PUBLIC_URL:-'https://landing.poz.world'} PORT=${PORT:-'5001'} CI=${CI:-'false'} craco start",
-    "build:production": "REACT_APP_MASTODON_URL=${REACT_APP_MASTODON_URL:-'https://poz.world'} REACT_APP_PUBLIC_URL=${REACT_APP_PUBLIC_URL:-'https://landing.poz.world'} PORT=${PORT:-'5001'} CI=${CI:-'false'} craco build",
-    "test": "REACT_APP_MASTODON_URL=http://pozz.me:3000 REACT_APP_PUBLIC_URL=http://localhost:5001 PORT=5001 craco test",
-    "eject": "REACT_APP_MASTODON_URL=http://pozz.me:3000 REACT_APP_PUBLIC_URL=http://localhost:5001 PORT=5001 craco eject"
+    "start:local": "REACT_APP_VERSION=${REACT_APP_VERSION:-'0.0.1-alpha'} PATH=./node_modules/.bin:${PATH} REACT_APP_MASTODON_URL=./node_modules/.bin:${PATH} REACT_APP_MASTODON_URL=./node_modules/.bin:${PATH} REACT_APP_MASTODON_URL=${REACT_APP_MASTODON_URL:-'http://poz.world:3000'} REACT_APP_PUBLIC_URL=${REACT_APP_PUBLIC_URL:-'http://landing.poz.world:5001'} PORT=${PORT:-'5001'} craco start",
+    "build:local": "REACT_APP_VERSION=${REACT_APP_VERSION:-'0.0.1-alpha'} PATH=./node_modules/.bin:${PATH} REACT_APP_MASTODON_URL=./node_modules/.bin:${PATH} REACT_APP_MASTODON_URL=./node_modules/.bin:${PATH} REACT_APP_MASTODON_URL=${REACT_APP_MASTODON_URL:-'http://poz.world:3000'} REACT_APP_PUBLIC_URL=${REACT_APP_PUBLIC_URL:-'http://landing.poz.world:5001'} PORT=${PORT:-'5001'} ts-node --esm node_modules/.bin/craco build",
+    "start:production": "PATH=./node_modules/.bin:${PATH} REACT_APP_MASTODON_URL=./node_modules/.bin:${PATH} REACT_APP_MASTODON_URL=./node_modules/.bin:${PATH} REACT_APP_MASTODON_URL=${REACT_APP_MASTODON_URL:-'https://poz.world'} REACT_APP_PUBLIC_URL=${REACT_APP_PUBLIC_URL:-'https://landing.poz.world'} PORT=${PORT:-'5001'} CI=${CI:-'false'} craco start",
+    "build:production": "PATH=./node_modules/.bin:${PATH} REACT_APP_MASTODON_URL=./node_modules/.bin:${PATH} REACT_APP_MASTODON_URL=./node_modules/.bin:${PATH} REACT_APP_MASTODON_URL=${REACT_APP_MASTODON_URL:-'https://poz.world'} REACT_APP_PUBLIC_URL=${REACT_APP_PUBLIC_URL:-'https://landing.poz.world'} PORT=${PORT:-'5001'} CI=${CI:-'false'} craco build",
+    "test": "PATH=./node_modules/.bin:${PATH} REACT_APP_MASTODON_URL=./node_modules/.bin:${PATH} REACT_APP_MASTODON_URL=./node_modules/.bin:${PATH} REACT_APP_MASTODON_URL=http://pozz.me:3000 REACT_APP_PUBLIC_URL=http://localhost:5001 PORT=5001 craco test",
+    "eject": "PATH=./node_modules/.bin:${PATH} REACT_APP_MASTODON_URL=./node_modules/.bin:${PATH} REACT_APP_MASTODON_URL=./node_modules/.bin:${PATH} REACT_APP_MASTODON_URL=http://pozz.me:3000 REACT_APP_PUBLIC_URL=http://localhost:5001 PORT=5001 craco eject"
   },
   "eslintConfig": {
     "extends": [
