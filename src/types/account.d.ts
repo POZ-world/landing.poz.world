@@ -1,4 +1,6 @@
-export type Account = {
+import { type Account as _Account } from "@poz-world/poz.world/mastodon/models/account";
+
+export type Account = _Account & {
     get(k:ACCOUNT_KEY) : any;
     
 };

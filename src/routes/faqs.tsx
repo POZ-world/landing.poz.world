@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Faq } from "../types/faq";
+import { Faq, Faqs } from "../types/faq";
 import Loading from "../components/loading";
 import fetch from "../lib/api-fetch";
 import FAQsComponent from "../components/faqs";
@@ -7,7 +7,7 @@ import GridBackground from "../components/gridBackground";
 import HeaderElements from "../components/headerElements";
 import React from "react";
 
-export function FAQs() {
+export default function FAQs() {
     const [faqs, setFaqs] = useState<Faq[]>([]);
     const [expanded, setExpanded] = useState<number>(-1);
 
@@ -15,7 +15,7 @@ export function FAQs() {
         const fetchData = async () => {
             try {
                 // Correct fetch function usage without passing state tuple
-                const response = await fetch<Faq[]>('/api/vnext/faqs');
+                const response = await fetch<Faqs>('/api/vnext/faqs');
                 if (response) {
                     setFaqs(response);
                 }

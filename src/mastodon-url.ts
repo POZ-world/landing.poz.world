@@ -7,6 +7,11 @@
  *     License: MIT (https://opensource.org/licenses/MIT)
  */
 
+/**
+ * The URL for the Mastodon instance, sourced from the environment variable `REACT_APP_MASTODON_URL`.
+ * 
+ * @constant {string} MASTODON_URL
+ */
 export const MASTODON_URL = process.env.REACT_APP_MASTODON_URL;
 
 console.log(`MASTODON_URL: ${MASTODON_URL}`);

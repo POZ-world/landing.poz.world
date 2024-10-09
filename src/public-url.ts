@@ -7,4 +7,8 @@
  *     License: MIT (https://opensource.org/licenses/MIT)
  */
 
+/**
+ * The public URL of the application, sourced from the environment variable `REACT_APP_PUBLIC_URL`.
+ * This URL is used to reference public assets and resources within the application.
+ */
 export const PUBLIC_URL = process.env.REACT_APP_PUBLIC_URL; 

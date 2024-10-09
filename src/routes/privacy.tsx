@@ -5,7 +5,7 @@ import fetch from "../lib/api-fetch";
 import GridBackground from "../components/gridBackground";
 import React from "react";
 
-export function Privacy() {
+export default function Privacy() {
     const [privacyPolicy, setPrivacyPolicy] = useState<PrivacyPolicy>({} as PrivacyPolicy);
 
     useEffect(() => {

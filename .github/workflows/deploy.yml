@@ -22,7 +22,13 @@ jobs:
     name: Build the App
 
     steps:
-      - uses: thefringeninja/action-minver@2.0.0-preview1
+      - uses: actions/checkout@v4
+        with:
+          submodules: true
+          lfs: false
+          fetch-depth: 0
+
+      - uses: theantitwink/minver@main
         name: MinVer
         id: minver
         with:
@@ -31,7 +37,7 @@ jobs:
           # Optional. Sets custom build metadata for your semantic version.
           build-metadata: ${{ github.sha }}
           # Optional. Specifies the default pre-release phase.
-          default-pre-release-phase: preview
+          default-pre-release-identifiers: preview.0
           # Optional. Specifies the minimum version to use when no tags exist.
           minimum-major-minor: 0.0
           # Optional. Specifies the prefix of the tags
@@ -39,12 +45,31 @@ jobs:
           # Optional. Specifies the log level.
           verbosity: info
 
-      - uses: actions/checkout@v4
+      # - name: Debug Environment
+      #   run: |
+      #     echo "PATH: $PATH"
+      #     echo "SHELL: $SHELL"
+      #   shell: bash
+
+      # - name: Set Path env var
+      #   run: Write-Output $(Join-Path -Path $(Get-Location) -ChildPath "PATH=node_modules/.bin:$env:PATH") >> $GITHUB_ENV
+      #   shell: pwsh
+
+      - uses: actions/setup-node@v4
         with:
-          submodules: true
-          lfs: false
+          node-version: 22
+          registry-url: https://npm.pkg.github.com/
+          token: ${{ secrets.HIVCHASER_PACKAGES_PAT }}
+          always-auth: true
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          registry-url: https://registry.npmjs.com
+
       - name: Install TypeScript
-        run: npm install typescript --force
+        run: npm install typescript --force || true
+
       - name: build
         run: npm run build:production
         env:

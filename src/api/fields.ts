@@ -7,13 +7,20 @@
  *     License: MIT (https://opensource.org/licenses/MIT)
  */
 
-import { apiRequestGet } from '@poz-world/poz.world/mastodon/api';
+import { apiRequestGet } from '../api';
 import { Account } from '@poz-world/poz.world/mastodon/models/account';
 import { ApiProfileFieldJSON, createProfileField, ProfileFields } from '../types/profile-fields';
 import { createAccountFromServerJSON } from '@poz-world/poz.world/mastodon/models/account';
 import { ApiAccountJSON } from '@poz-world/poz.world/mastodon/api_types/accounts';
+import fetch from '../lib/api-fetch';
 export const apiGetFieldTemplates = async () =>
-  new ProfileFields((await apiRequestGet<ApiProfileFieldJSON[]>('vnext/fields/templates.json', {})).map(createProfileField));
+{
+  let fieldTemplates = (await fetch<ProfileFields>(
+    "/api/vnext/fields/templates.json",
+    {} as ProfileFields
+  )) as ApiProfileFieldJSON[];
+  return (fieldTemplates.map(createProfileField)) as ProfileFields;
+}
 
 export const apiGetAccount = async (id: string) =>
   (await apiRequestGet<ApiAccountJSON[]>(`v1/accounts/${id}`, {})).map(createAccountFromServerJSON).pop();

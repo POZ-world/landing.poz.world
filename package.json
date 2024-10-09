@@ -1,17 +1,26 @@
 {
   "name": "@poz-world/landing",
-  "version": "0.0.1-beta",
+  "homepage": "https://landing.poz.world",
   "license": "MIT",
+  "packageManager": "yarn@4.5.0",
+  "version": "0.0.1-beta",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://npm.pkg.github.com"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/poz-world/landing.poz.world"
   },
-  "packageManager": "yarn@4.5.0",
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com",
-    "access": "public"
+  "scripts": {
+    "build": "tsc",
+    "build:local": "REACT_APP_VERSION=${REACT_APP_VERSION:-'0.0.1-alpha'} PATH=./node_modules/.bin:${PATH} REACT_APP_MASTODON_URL=./node_modules/.bin:${PATH} REACT_APP_MASTODON_URL=./node_modules/.bin:${PATH} REACT_APP_MASTODON_URL=${REACT_APP_MASTODON_URL:-'http://poz.world:3000'} REACT_APP_PUBLIC_URL=${REACT_APP_PUBLIC_URL:-'http://landing.poz.world:5001'} PORT=${PORT:-'5001'} ts-node --esm node_modules/.bin/craco build",
+    "build:production": "PATH=./node_modules/.bin:${PATH} REACT_APP_MASTODON_URL=./node_modules/.bin:${PATH} REACT_APP_MASTODON_URL=./node_modules/.bin:${PATH} REACT_APP_MASTODON_URL=${REACT_APP_MASTODON_URL:-'https://poz.world'} REACT_APP_PUBLIC_URL=${REACT_APP_PUBLIC_URL:-'https://landing.poz.world'} PORT=${PORT:-'5001'} CI=${CI:-'false'} craco build",
+    "eject": "PATH=./node_modules/.bin:${PATH} REACT_APP_MASTODON_URL=./node_modules/.bin:${PATH} REACT_APP_MASTODON_URL=./node_modules/.bin:${PATH} REACT_APP_MASTODON_URL=http://pozz.me:3000 REACT_APP_PUBLIC_URL=http://localhost:5001 PORT=5001 craco eject",
+    "start:local": "REACT_APP_VERSION=${REACT_APP_VERSION:-'0.0.1-alpha'} PATH=./node_modules/.bin:${PATH} REACT_APP_MASTODON_URL=./node_modules/.bin:${PATH} REACT_APP_MASTODON_URL=./node_modules/.bin:${PATH} REACT_APP_MASTODON_URL=${REACT_APP_MASTODON_URL:-'http://poz.world:3000'} REACT_APP_PUBLIC_URL=${REACT_APP_PUBLIC_URL:-'http://landing.poz.world:5001'} PORT=${PORT:-'5001'} craco start",
+    "start:production": "PATH=./node_modules/.bin:${PATH} REACT_APP_MASTODON_URL=./node_modules/.bin:${PATH} REACT_APP_MASTODON_URL=./node_modules/.bin:${PATH} REACT_APP_MASTODON_URL=${REACT_APP_MASTODON_URL:-'https://poz.world'} REACT_APP_PUBLIC_URL=${REACT_APP_PUBLIC_URL:-'https://landing.poz.world'} PORT=${PORT:-'5001'} CI=${CI:-'false'} craco start",
+    "test": "PATH=./node_modules/.bin:${PATH} REACT_APP_MASTODON_URL=./node_modules/.bin:${PATH} REACT_APP_MASTODON_URL=./node_modules/.bin:${PATH} REACT_APP_MASTODON_URL=http://pozz.me:3000 REACT_APP_PUBLIC_URL=http://localhost:5001 PORT=5001 craco test"
   },
-  "homepage": "https://landing.poz.world",
   "dependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "@babel/plugin-proposal-unicode-property-regex": "^7.18.6",
@@ -24,11 +33,16 @@
     "@eslint/config-array": "^0.18.0",
     "@eslint/object-schema": "^2.1.4",
     "@formatjs/intl": "^2.10.6",
+    "@fortawesome/fontawesome-svg-core": "^6.6.0",
+    "@fortawesome/react-fontawesome": "^0.2.2",
+    "@fortawesome/fontawesome-common-types": "^6.6.0",
+    "@fortawesome/free-solid-svg-icons": "^6.6.0",
     "@gamestdio/websocket": "^0.3.2",
     "@headlessui/react": "^2.1.9",
     "@heroicons/react": "^2.1.5",
-    "@poz-world/poz.world": "^4.3.0-2024-10-09",
+    "@poz-world/poz.world": "^4.3.0-2024-10-10",
     "@reduxjs/toolkit": "^2.2.8",
+    "@shlinkio/data-manipulation": "^1.0.3",
     "@tailwindcss/aspect-ratio": "^0.4.2",
     "@testing-library/jest-dom": "^6.5.0",
     "@testing-library/react": "^16.0.0",
@@ -38,6 +52,7 @@
     "@types/react-helmet": "^6.1.11",
     "axios": "^1.7.7",
     "bottlejs": "^2.0.1",
+    "compare-versions": "^6.1.1",
     "css-loader": "^7.1.2",
     "detect-passive-events": "^2.0.3",
     "emoji-mart": "npm:emoji-mart-lazyload@latest",
@@ -65,40 +80,15 @@
     "react-overlays": "^5.2.1",
     "react-redux-loading-bar": "^5.0.8",
     "react-router-dom": "^6.26.2",
+    "react-scripts": "^5.0.1",
     "redux-immutable": "^4.0.0",
+    "redux-localstorage-simple": "^2.5.1",
     "style-loader": "^4.0.0",
     "tesseract.js": "^5.1.1",
     "web-vitals": "^4.2.3",
     "ws": "^8.18.0",
     "yargs": "^17.7.2",
     "yargs-parser": "^21.1.1"
-  },
-  "scripts": {
-    "build": "tsc",
-    "start:local": "REACT_APP_VERSION=${REACT_APP_VERSION:-'0.0.1-alpha'} REACT_APP_MASTODON_URL=${REACT_APP_MASTODON_URL:-'http://poz.world:3000'} REACT_APP_PUBLIC_URL=${REACT_APP_PUBLIC_URL:-'http://landing.poz.world:5001'} PORT=${PORT:-'5001'} craco start",
-    "build:local": "REACT_APP_VERSION=${REACT_APP_VERSION:-'0.0.1-alpha'} REACT_APP_MASTODON_URL=${REACT_APP_MASTODON_URL:-'http://poz.world:3000'} REACT_APP_PUBLIC_URL=${REACT_APP_PUBLIC_URL:-'http://landing.poz.world:5001'} PORT=${PORT:-'5001'} ts-node --esm node_modules/.bin/craco build",
-    "start:production": "REACT_APP_MASTODON_URL=${REACT_APP_MASTODON_URL:-'https://poz.world'} REACT_APP_PUBLIC_URL=${REACT_APP_PUBLIC_URL:-'https://landing.poz.world'} PORT=${PORT:-'5001'} CI=${CI:-'false'} craco start",
-    "build:production": "REACT_APP_MASTODON_URL=${REACT_APP_MASTODON_URL:-'https://poz.world'} REACT_APP_PUBLIC_URL=${REACT_APP_PUBLIC_URL:-'https://landing.poz.world'} PORT=${PORT:-'5001'} CI=${CI:-'false'} craco build",
-    "test": "REACT_APP_MASTODON_URL=http://pozz.me:3000 REACT_APP_PUBLIC_URL=http://localhost:5001 PORT=5001 craco test",
-    "eject": "REACT_APP_MASTODON_URL=http://pozz.me:3000 REACT_APP_PUBLIC_URL=http://localhost:5001 PORT=5001 craco eject"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
   },
   "devDependencies": {
     "@babel/core": "^7.25.7",
@@ -138,5 +128,29 @@
     "typescript": "^5.6.2",
     "webpack-assets-manifest": "^5.2.1",
     "webpack-bundle-analyzer": "^4.10.2"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ],
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ]
+  },
+  "resolutions": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "eslint": "^9.12.0",
+    "emoji-mart": "npm:emoji-mart-lazyload@latest"
   }
 }

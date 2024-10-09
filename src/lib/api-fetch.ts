@@ -1,17 +1,18 @@
-import axios from 'axios';
+import axios from './axios';
 import { MASTODON_URL } from '../mastodon-url';
 import { localStorage } from './extended-storage';
 
 export async function fetch<T>(endpoint: string): Promise<T | undefined> {
     try {
-        const res = await axios.get<T>(`${MASTODON_URL}${endpoint}`);
+        axios.defaults.baseURL = MASTODON_URL;
+        const res = await axios.get<T>(endpoint);
         return res.data;
     } catch (err) {
         console.log(err);
     }
 }
 
-export default async function fetchWithCache<T>(endpoint: string): Promise<T | undefined> {
+export default async function fetchWithCache<T>(endpoint: string, _default?: T): Promise<T | undefined> {
     try {
         // Check localStorage for cached response
         if (localStorage.containsKey(endpoint)) {
@@ -22,5 +23,6 @@ export default async function fetchWithCache<T>(endpoint: string): Promise<T | u
         return res;
     } catch (err) {
         console.log(err);
+        return _default;
     }
 }

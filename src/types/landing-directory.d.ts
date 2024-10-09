@@ -6,8 +6,8 @@
  *   Copyright: © 2024 Justin Paul Chase, All Rights Reserved
  *     License: MIT (https://opensource.org/licenses/MIT)
  */
-import { ApiAccountJSON } from "../api_types/accounts";
+import { Account } from "./account";
 
  
 
-export type LandingDirectory = Array<ApiAccountJSON>;
+export type LandingDirectory = Array<Account>;

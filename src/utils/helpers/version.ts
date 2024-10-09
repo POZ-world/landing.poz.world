@@ -1,5 +1,5 @@
-import { memoizeWith } from '@shlinkio/data-manipulation';
-import { compare } from 'compare-versions';
+import { memoizeWith } from './memoize-wirh';
+import { compare } from './compare';
 
 export type Empty = null | undefined | '' | never[];
 
@@ -35,7 +35,7 @@ export const versionMatch = (versionToMatch: SemVer | Empty, { maxVersion, minVe
   return matchesMaxVersion && matchesMinVersion;
 };
 
-const versionIsValidSemVer = memoizeWith((v) => v, (version: string): version is SemVer => {
+const versionIsValidSemVer = memoizeWith((v: string) => v, (version: string): version is SemVer => {
   try {
     return compare(version, version, '=');
   } catch {
@@ -45,6 +45,6 @@ const versionIsValidSemVer = memoizeWith((v) => v, (version: string): version is
 
 export const versionToPrintable = (version: string) => (!versionIsValidSemVer(version) ? version : `v${version}`);
 
-export const versionToSemVer = (version: string, fallback: SemVer = 'latest'): SemVer => (
+export const versionToSemVer = (version: any, fallback: SemVer = 'latest'): SemVer => (
   versionIsValidSemVer(version) ? version : fallback
 );
