@@ -116,7 +116,7 @@
     "@types/circular-dependency-plugin": "^5.0.8",
     "@types/http-link-header": "^1.0.7",
     "@types/jest": "^29.5.13",
-    "@types/marked": "^5.0.2",
+    "@types/marked": "^6.0.0",
     "@types/postcss-import": "^14.0.3",
     "@types/react": "^18.3.11",
     "@types/react-dom": "^18.3.0",
