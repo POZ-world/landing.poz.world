@@ -8,6 +8,7 @@
  */
 
 export type Action = (...args: any[]) => void;
+export type ActionOf<T> = (...args: T[]) => any;
 export type useEffectCallback = (effect: React.EffectCallback, deps?: React.DependencyList) => void;
 export type useStateAction<T> = (initialState: T | (() => T)) => [T, React.Dispatch<React.SetStateAction<T>>];
 export type setStateAction<T> = React.Dispatch<React.SetStateAction<T>>;

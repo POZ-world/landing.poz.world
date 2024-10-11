@@ -23,10 +23,7 @@ const cracoConfig: craco.CracoConfig = {
         resolve: {
           ...cracoWebpackConfig.resolve,
           ...webpackConfig.resolve,
-          extensions: [
-            ...(cracoWebpackConfig.resolve?.extensions || []),
-            ...(webpackConfig.resolve?.extensions || []),
-          ],
+          // Removed deprecated options
         },
         // Other configurations...
       };

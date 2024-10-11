@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
-import { Faq } from '../types/faq';
-import FAQ from './faq';
+import { Faqs as FAQs } from '../types/faq';
+import FAQComponent from './faq';
 import Loading from './loading';
 
 
 type FAQsProps = {
-  faqs: Faq[];
+  faqs: FAQs;
   expanded: number | null;
   toggleExpanded: (index: number) => void;
 }
 
-export default function FAQs({ faqs }: FAQsProps): React.ReactElement {
+export default function FrequentlyAskedQuestions({ faqs }: FAQsProps): React.ReactElement {
   const [expanded, setExpanded] = useState<number | null>(null);
 
   const toggleExpanded = (index: number) => {
@@ -24,8 +24,8 @@ export default function FAQs({ faqs }: FAQsProps): React.ReactElement {
   return (
     <div className="divide-y divide-gray-400/10">
       <dl className="mt-10 space-y-6 divide-y divide-gray-400/10">
-        {faqs.map((faq: Faq) => (
-          <FAQ key={faq.number} faq={faq} expanded={expanded} toggleExpanded={index => toggleExpanded(index)} />
+        {faqs.map((faq) => (
+          <FAQComponent key={faq.number} faq={faq} expanded={expanded} toggleExpanded={index => toggleExpanded(index)} />
         ))}
       </dl>
     </div>

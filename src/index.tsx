@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import { createBrowserRouter, RouterProvider, RouteObject, BrowserRouter } from 'react-router-dom';
@@ -8,9 +8,9 @@ import * as ReactDom from 'react-dom/client';
 import ErrorHandler from './components/errorHandler';
 import ScrollToTop from './components/scrollToTop';
 import App from './App';
-import { configureStore } from '@reduxjs/toolkit';
 import { setUpStore } from './store';
 import Bottle, { IContainer } from 'bottlejs';
+import Loading from './components/loading';
 
 const container = new Bottle();
 const store = setUpStore(container as unknown as IContainer);
@@ -21,7 +21,9 @@ reactDom.render(
   <BrowserRouter>
     <ErrorHandler>
       <ScrollToTop>
-        <App />
+        <Suspense fallback={<Loading />}>
+          <App />
+        </Suspense>
       </ScrollToTop>
     </ErrorHandler>
   </BrowserRouter>

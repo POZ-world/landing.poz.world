@@ -15,34 +15,34 @@ const env = process.env;
 
 const plugins = [
   new NodePolyfillPlugin(),
-  new MiniCssExtractPlugin({
-    filename: "[name].css",
-    chunkFilename: "[id].css",
-  }),
-  new Webpack.EnvironmentPlugin(JSON.parse(JSON.stringify(env))),
-  new WebpackAssetsManifest({
-    integrity: true,
-    integrityHashes: ["sha256"],
-    entrypoints: true,
-    writeToDisk: true,
-    publicPath: true,
-  }),
-  new CircularDependencyPlugin({ failOnError: true }),
-  new CompressionPlugin({
-    filename: "[path][base].gz[query]",
-    test: /\.(js|css|html|json|ico|svg|eot|otf|ttf|map)$/,
-  }),
-  new CompressionPlugin({
-    filename: "[path][base].br[query]",
-    algorithm: "brotliCompress",
-    test: /\.(js|css|html|json|ico|svg|eot|otf|ttf|map)$/,
-  }),
-  new BundleAnalyzerPlugin({
-    // generates report.html
-    analyzerMode: "static",
-    openAnalyzer: false,
-    logLevel: "silent", // do not bother Webpacker, who runs with --json and parses stdout
-  }),
+  // new MiniCssExtractPlugin({
+  //   filename: "[name].css",
+  //   chunkFilename: "[id].css",
+  // }),
+  // new Webpack.EnvironmentPlugin(JSON.parse(JSON.stringify(env))),
+  // new WebpackAssetsManifest({
+  //   integrity: true,
+  //   integrityHashes: ["sha256"],
+  //   entrypoints: true,
+  //   writeToDisk: true,
+  //   publicPath: true,
+  // }),
+  // new CircularDependencyPlugin({ failOnError: true }),
+  // new CompressionPlugin({
+  //   filename: "[path][base].gz[query]",
+  //   test: /\.(js|css|html|json|ico|svg|eot|otf|ttf|map)$/,
+  // }),
+  // new CompressionPlugin({
+  //   filename: "[path][base].br[query]",
+  //   algorithm: "brotliCompress",
+  //   test: /\.(js|css|html|json|ico|svg|eot|otf|ttf|map)$/,
+  // }),
+  // new BundleAnalyzerPlugin({
+  //   // generates report.html
+  //   analyzerMode: "static",
+  //   openAnalyzer: false,
+  //   logLevel: "silent", // do not bother Webpacker, who runs with --json and parses stdout
+  // }),
 ];
 
 const nodeModulesToProcess = ["@poz-world/poz.world"];
@@ -112,7 +112,7 @@ const config: Webpack.Configuration = {
     filename: "[name].bundle.js",
     path: path.resolve(__dirname, "dist"),
   },
-  entry: "./src/index.tsx",
+  entry: "./src/index.tsx"
 };
 
 export default config;

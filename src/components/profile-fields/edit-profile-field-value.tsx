@@ -1,13 +1,13 @@
 import * as React from "react";
 
 // import { useState, useEffect } from "react";
-import { ProfileField } from "../types/profile-fields";
+import { ProfileField } from "../../types/profile-fields";
 
 type EditProfileFieldValueArgs = {
     profileField: ProfileField;
 }
 
-const ProfileFieldValue = () => {
+const EditProfileFieldValue = () => {
   return (
     <div>
       {/* Your JSX code here */}

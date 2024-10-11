@@ -28,7 +28,7 @@ jobs:
           lfs: false
           fetch-depth: 0
 
-      - uses: theantitwink/minver@main
+      - uses: poz-world/minver@main
         name: MinVer
         id: minver
         with:

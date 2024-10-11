@@ -13,7 +13,7 @@ import React from "react";
 export default function About() {
     const [instance, setInstance] = useState<InstanceVNext>({} as InstanceVNext);
     const [directoryLimit, setDirectoryLimit] = useState(DEFAULT_DIRECTORY_LIMIT);
-    const [directory, setDirectory] = useState<LandingDirectory>([] as LandingDirectory);
+    const [directory, setDirectory] = useState<LandingDirectory>({} as LandingDirectory);
 
     useEffect(() => {
         const fetchData = async () => {

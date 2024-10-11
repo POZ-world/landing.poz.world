@@ -6,8 +6,12 @@
  *   Copyright: © 2024 Justin Paul Chase, All Rights Reserved
  *     License: MIT (https://opensource.org/licenses/MIT)
  */
-import { Account } from "./account";
+import { Account } from "@poz-world/poz.world/mastodon/models/account";;
+import { AddressableResource } from "./addressable-resource";
 
  
 
-export type LandingDirectory = Array<Account>;
+export type LandingDirectory = Array<Account> &
+  AddressableResource & {
+    uri: "/api/v1/landing";
+  };

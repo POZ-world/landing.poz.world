@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Faq, Faqs } from "../types/faq";
+import { Faqs } from "../types/faq";
 import Loading from "../components/loading";
 import fetch from "../lib/api-fetch";
 import FAQsComponent from "../components/faqs";
@@ -8,7 +8,7 @@ import HeaderElements from "../components/headerElements";
 import React from "react";
 
 export default function FAQs() {
-    const [faqs, setFaqs] = useState<Faq[]>([]);
+  const [faqs, setFaqs] = useState<Faqs>({} as Faqs);
     const [expanded, setExpanded] = useState<number>(-1);
 
     useEffect(() => {

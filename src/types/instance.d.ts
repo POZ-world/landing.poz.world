@@ -7,7 +7,7 @@
  *     License: MIT (https://opensource.org/licenses/MIT)
  */
 import { ApiAccountJSON } from "../api_types/accounts";
-import { Faq } from "./faq";
+import { FAQ } from "./faq";
 import { Rule } from "./rule";
 
 export type InstanceBase = {
@@ -20,7 +20,7 @@ export type InstanceBase = {
     thumbnail: string | InstanceThumbnail;
     languages: string[];
     rules: Rule[];
-    faqs: Faq[];
+    faqs: FAQ[];
 };
 
 export type Instance = InstanceBase & {

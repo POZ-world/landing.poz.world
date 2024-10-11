@@ -1,0 +1,53 @@
+{
+  "settings": {
+  },
+  "globals": {
+    "window": true,
+    "document": true,
+    "localStorage": true
+  },
+  "ecmaFeatures": {
+    "modules": true,
+    "arrowFunctions": true,
+    "binaryLiterals": true,
+    "jsx": true,
+    "objectLiteralComputedProperties": true,
+    "superInFunctions": true,
+    "classes": true,
+    "blockBindings": true,
+    "defaultParams": true,
+    "destructuring": true,
+    "experimentalObjectRestSpread": true,
+    "forOf": true,
+    "generators": true,
+    "globalReturn": true,
+    "impliedStrict": true,
+    "objectLiteralDuplicateProperties": true,
+    "objectLiteralShorthandMethods": true,
+    "objectLiteralShorthandProperties": true,
+    "octalLiterals": true,
+    "regexUFlag": true,
+    "regexYFlag": true,
+    "restParams": true,
+    "spread": true,
+    "templateStrings": true,
+    "unicodeCodePointEscapes": true
+  },
+  "plugins": [
+    "react"
+  ],
+  "extends": [
+  ],
+  "noInlineConfig": false,
+  "root": true,
+  "overrides": [
+    {
+      "files": ["*.js"],
+      "rules": {
+        "no-console": "off",
+        "no-undef": "off",
+        "no-unused-vars":"off"
+      }
+    }
+  ]
+}

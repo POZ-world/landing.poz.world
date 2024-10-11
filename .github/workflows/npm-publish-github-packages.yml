@@ -26,9 +26,9 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - uses: theantitwink/minver@main
+      - uses: poz-world/minver@main
         id: minver
-      - uses: theantitwink/update-package-version@main
+      - uses: poz-world/update-package-version@main
         with:
           version: ${{ steps.minver.outputs.version }}
       - uses: actions/setup-node@v4

@@ -30,7 +30,7 @@ export default function AccountList({ directory, directoryLimit, setDirectoryLim
                 Some of our members
             </h2>
             <ul className="grid gap-x-6 gap-y-12 sm:gap-y-16 my-16 grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-7">
-                {directory.slice(0, directoryLimit).map((account, index) => (
+                {directory.slice(0, directoryLimit).map((account, index, _) => (
                     <li key={index} className="min-w-24 min-h-24 md:min-w-36 md:min-h-36">
                         <a className="w-full h-full hover:text-blue-700 dark:hover:text-blue-300 break-words" href={`${MASTODON_URL}/@${account.username}`} title={`Visit ${account.display_name}'s profile`}>
                             <div className="w-16 h-16 md:w-24 md:h-24 mx-auto">

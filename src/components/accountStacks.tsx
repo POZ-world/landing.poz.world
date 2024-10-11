@@ -11,8 +11,8 @@ import React from "react";
 // }
 
 export default function AccountStacks(/*{ slideshows, setSlideshows, useEffect }: AccountStacksParams*/) {
-    const [directory, setDirectory] = useState<LandingDirectory>([] as LandingDirectory);
-    const [slideshows, setSlideshows] = useState<LandingDirectory>([] as LandingDirectory);
+    const [directory, setDirectory] = useState<LandingDirectory>({} as LandingDirectory);
+    const [slideshows, setSlideshows] = useState<LandingDirectory>({} as LandingDirectory);
 
     // every 10 seconds, rotate the slideshows
     useEffect(() => {
@@ -20,7 +20,7 @@ export default function AccountStacks(/*{ slideshows, setSlideshows, useEffect }
             const landingDirectoryResponse = await fetch<LandingDirectory>('/api/v1/landing');
             if (landingDirectoryResponse) {
                 setDirectory(landingDirectoryResponse);
-                setSlideshows([]);
+                setSlideshows({} as LandingDirectory);
             }
         }
 
@@ -32,7 +32,7 @@ export default function AccountStacks(/*{ slideshows, setSlideshows, useEffect }
 
                 // pick a random index to move first index to last index
                 let random_index = Math.floor(Math.random() * new_slideshows.length);
-                let slideshow = [] as LandingDirectory;
+                let slideshow = {} as LandingDirectory;
                 let random_account = new_slideshows[random_index];
                 slideshow.push(random_account);
 

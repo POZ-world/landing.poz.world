@@ -9,7 +9,7 @@
 
 import { AddressableResource } from "./addressable-resource";
 
-export class Faq implements AddressableResource {
+export class FAQ implements AddressableResource {
   number!: number;
   id!: number;
   question!: string;
@@ -19,6 +19,6 @@ export class Faq implements AddressableResource {
   }
 }
 
-export type Faqs = Array<Faq> & {
+export type Faqs = Array<FAQ> & AddressableResource & {
   uri: "/api/v1/instance/faqs";
-} & AddressableResource;
+};

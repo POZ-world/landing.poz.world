@@ -1,4 +1,4 @@
-export { Faq, Faqs } from "./faq";
+export { FAQ as Faq, Faqs } from "./faq";
 export { InstanceVNext } from "./instance";
 export { LandingDirectory } from "./landing-directory";
 export { Links, Action, LinkTarget, LinkButton, Link } from "./links";

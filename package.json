@@ -14,12 +14,19 @@
   },
   "scripts": {
     "build": "tsc",
-    "build:local": "REACT_APP_VERSION=${REACT_APP_VERSION:-'0.0.1-alpha'} PATH=./node_modules/.bin:${PATH} REACT_APP_MASTODON_URL=./node_modules/.bin:${PATH} REACT_APP_MASTODON_URL=./node_modules/.bin:${PATH} REACT_APP_MASTODON_URL=${REACT_APP_MASTODON_URL:-'http://poz.world:3000'} REACT_APP_PUBLIC_URL=${REACT_APP_PUBLIC_URL:-'http://landing.poz.world:5001'} PORT=${PORT:-'5001'} ts-node --esm node_modules/.bin/craco build",
-    "build:production": "PATH=./node_modules/.bin:${PATH} REACT_APP_MASTODON_URL=./node_modules/.bin:${PATH} REACT_APP_MASTODON_URL=./node_modules/.bin:${PATH} REACT_APP_MASTODON_URL=${REACT_APP_MASTODON_URL:-'https://poz.world'} REACT_APP_PUBLIC_URL=${REACT_APP_PUBLIC_URL:-'https://landing.poz.world'} PORT=${PORT:-'5001'} CI=${CI:-'false'} craco build",
-    "eject": "PATH=./node_modules/.bin:${PATH} REACT_APP_MASTODON_URL=./node_modules/.bin:${PATH} REACT_APP_MASTODON_URL=./node_modules/.bin:${PATH} REACT_APP_MASTODON_URL=http://pozz.me:3000 REACT_APP_PUBLIC_URL=http://localhost:5001 PORT=5001 craco eject",
-    "start:local": "REACT_APP_VERSION=${REACT_APP_VERSION:-'0.0.1-alpha'} PATH=./node_modules/.bin:${PATH} REACT_APP_MASTODON_URL=./node_modules/.bin:${PATH} REACT_APP_MASTODON_URL=./node_modules/.bin:${PATH} REACT_APP_MASTODON_URL=${REACT_APP_MASTODON_URL:-'http://poz.world:3000'} REACT_APP_PUBLIC_URL=${REACT_APP_PUBLIC_URL:-'http://landing.poz.world:5001'} PORT=${PORT:-'5001'} craco start",
-    "start:production": "PATH=./node_modules/.bin:${PATH} REACT_APP_MASTODON_URL=./node_modules/.bin:${PATH} REACT_APP_MASTODON_URL=./node_modules/.bin:${PATH} REACT_APP_MASTODON_URL=${REACT_APP_MASTODON_URL:-'https://poz.world'} REACT_APP_PUBLIC_URL=${REACT_APP_PUBLIC_URL:-'https://landing.poz.world'} PORT=${PORT:-'5001'} CI=${CI:-'false'} craco start",
-    "test": "PATH=./node_modules/.bin:${PATH} REACT_APP_MASTODON_URL=./node_modules/.bin:${PATH} REACT_APP_MASTODON_URL=./node_modules/.bin:${PATH} REACT_APP_MASTODON_URL=http://pozz.me:3000 REACT_APP_PUBLIC_URL=http://localhost:5001 PORT=5001 craco test"
+    "build:local": "REACT_APP_VERSION=${REACT_APP_VERSION:-'0.0.1-alpha'} PATH=./node_modules/.bin:${PATH} REACT_APP_MASTODON_URL=${REACT_APP_MASTODON_URL:-'http://poz.world:3000'} REACT_APP_PUBLIC_URL=${REACT_APP_PUBLIC_URL:-'http://landing.poz.world:5001'} PORT=${PORT:-'5001'} ts-node --esm node_modules/.bin/craco build",
+    "build:production": "PATH=./node_modules/.bin:${PATH} REACT_APP_MASTODON_URL=${REACT_APP_MASTODON_URL:-'https://poz.world'} REACT_APP_PUBLIC_URL=${REACT_APP_PUBLIC_URL:-'https://landing.poz.world'} PORT=${PORT:-'5001'} CI=${CI:-'false'} craco build",
+    "eject": "PATH=./node_modules/.bin:${PATH} REACT_APP_MASTODON_URL=http://poz.world:3000 REACT_APP_PUBLIC_URL=http://localhost:5001 PORT=5001 craco eject",
+    "start:local": "REACT_APP_VERSION=${REACT_APP_VERSION:-'0.0.1-alpha'} PATH=./node_modules/.bin:${PATH} REACT_APP_MASTODON_URL=${REACT_APP_MASTODON_URL:-'http://poz.world:3000'} REACT_APP_PUBLIC_URL=${REACT_APP_PUBLIC_URL:-'http://landing.poz.world:5001'} PORT=${PORT:-'5001'} craco start",
+    "start:local:react": "REACT_APP_VERSION=${REACT_APP_VERSION:-'0.0.1-alpha'} PATH=./node_modules/.bin:${PATH} REACT_APP_MASTODON_URL=${REACT_APP_MASTODON_URL:-'http://poz.world:3000'} REACT_APP_PUBLIC_URL=${REACT_APP_PUBLIC_URL:-'http://landing.poz.world:5001'} PORT=${PORT:-'5001'} react-scripts start",
+    "start:production": "PATH=./node_modules/.bin:${PATH} REACT_APP_MASTODON_URL=${REACT_APP_MASTODON_URL:-'https://poz.world'} REACT_APP_PUBLIC_URL=${REACT_APP_PUBLIC_URL:-'https://landing.poz.world'} PORT=${PORT:-'5001'} CI=${CI:-'false'} craco start",
+    "test": "PATH=./node_modules/.bin:${PATH} REACT_APP_MASTODON_URL=http://poz.world:3000 REACT_APP_PUBLIC_URL=http://localhost:5001 PORT=5001 craco test"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
   },
   "dependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
@@ -33,10 +40,11 @@
     "@eslint/config-array": "^0.18.0",
     "@eslint/object-schema": "^2.1.4",
     "@formatjs/intl": "^2.10.6",
-    "@fortawesome/fontawesome-svg-core": "^6.6.0",
-    "@fortawesome/react-fontawesome": "^0.2.2",
     "@fortawesome/fontawesome-common-types": "^6.6.0",
+    "@fortawesome/fontawesome-free": "^6.6.0",
+    "@fortawesome/fontawesome-svg-core": "^6.6.0",
     "@fortawesome/free-solid-svg-icons": "^6.6.0",
+    "@fortawesome/react-fontawesome": "^0.2.2",
     "@gamestdio/websocket": "^0.3.2",
     "@headlessui/react": "^2.1.9",
     "@heroicons/react": "^2.1.5",
@@ -97,9 +105,12 @@
     "@babel/preset-typescript": "^7.25.7",
     "@craco/craco": "^7.1.0",
     "@craco/types": "^7.1.0",
+    "@eslint-community/eslint-plugin-eslint-comments": "^4.4.0",
+    "@eslint-recommended/eslint-config-typescript": "^50.1.0",
     "@shlinkio/shlink-frontend-kit": "^0.5.3",
     "@tailwindcss/forms": "^0.5.9",
     "@tailwindcss/typography": "^0.5.15",
+    "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.5.0",
     "@testing-library/react": "^16.0.1",
     "@testing-library/user-event": "^14.5.2",
@@ -112,6 +123,8 @@
     "@types/react-dom": "^18.3.0",
     "@types/webpack-assets-manifest": "^5.1.4",
     "@types/webpack-bundle-analyzer": "^4.7.0",
+    "@typescript-eslint/eslint-plugin": "^8.8.1",
+    "@typescript-eslint/parser": "^8.8.1",
     "@typescript-eslint/typescript-estree": "^8.8.1",
     "autoprefixer": "^10.4.20",
     "babel-loader": "^9.2.1",
@@ -119,21 +132,24 @@
     "compression-webpack-plugin": "^11.1.0",
     "craco": "^0.0.3",
     "emoji-mart-lazyload": "^3.0.1-j",
-    "eslint-config-react-app": "^7.0.1",
+    "eslint-config-love": "^84.1.0",
+    "eslint-plugin-jsdoc": "^50.3.1",
+    "eslint-plugin-regexp": "^2.6.0",
+    "eslint-plugin-sonarjs": "^2.0.3",
+    "eslint-plugin-tsdoc": "^0.3.0",
+    "eslint-plugin-unicorn": "^56.0.0",
     "postcss": "^8.4.47",
     "postcss-apply": "^0.12.0",
+    "react-redux": "^9.1.2",
     "reactstrap": "^9.2.3",
+    "redux": "^5.0.1",
     "tailwindcss": "^3.4.13",
     "ts-loader": "^9.5.1",
     "typescript": "^5.6.2",
+    "typescript-eslint": "^8.8.1",
+    "webpack": "^5.95.0",
     "webpack-assets-manifest": "^5.2.1",
     "webpack-bundle-analyzer": "^4.10.2"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
   },
   "browserslist": {
     "development": [
@@ -148,9 +164,6 @@
     ]
   },
   "resolutions": {
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "eslint": "^9.12.0",
     "emoji-mart": "npm:emoji-mart-lazyload@latest"
   }
 }

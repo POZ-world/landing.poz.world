@@ -1,10 +1,10 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "module": "amd",
+    "module": "AMD",
     "moduleResolution": "node",
     "strict": true,
-    "jsx": "react",
+    "jsx": "react-jsx",
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
@@ -25,12 +25,10 @@
       "emoji_compressed/": [
         "@poz-world/poz.world/mastodon/features/emoji/emoji_compressed"
       ],
+      "@/*": ["src/*"],
     },
     "resolveJsonModule": true,
   },
-  // "files": [
-  //   "src",
-  // ],
   "include": [
     "src/**/*.js",
     "src/**/*.jsx",
