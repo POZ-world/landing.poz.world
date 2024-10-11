@@ -1,0 +1,14 @@
+npmScopes:
+  "@poz-world":
+    npmAuthToken: $NPM_AUTH_TOKEN
+    npmRegistryServer: "https://npm.pkg.github.com"
+  poz-world:
+    npmAlwaysAuth: true
+    npmRegistryServer: "https://npm.pkg.github.com"
+npmRegistries:
+  //npm.pkg.github.com:
+    npmAlwaysAuth: true
+    npmAuthToken: $NPM_AUTH_TOKEN
+nmMode: hardlinks-local
+nodeLinker: node-modules
+
