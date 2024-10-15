@@ -1,11 +1,11 @@
 import type { RLSOptions } from "redux-localstorage-simple";
 import {
   Account,
-  Rules as RulesDto,
-  Faqs as FaqsDto,
-  TermsOfService as TermsOfServiceDto,
-  PrivacyPolicy as PrivacyPolicyDto,
-  ProfileFields as ProfileFieldsDto,
+  Rule,
+  FAQ,
+  TermsOfService,
+  PrivacyPolicy,
+  ProfileFields,
   LandingDirectory,
 } from "../types";
 import { IContainer } from "bottlejs";
@@ -14,19 +14,19 @@ import { load, save } from "redux-localstorage-simple";
 import { initReducers } from "src/app/reducers";
 
 export type AppState = {
-  currentUser: Account;
-  rules: RulesDto;
-  faqs: FaqsDto;
-  termsOfService: TermsOfServiceDto;
-  privacyPolicy: PrivacyPolicyDto;
-  profileFields: ProfileFieldsDto;
-  landingDirectory: LandingDirectory;
+  currentUser?: Account;
+  rules?: Rule[];
+  faqs?: FAQ[];
+  termsOfService?: TermsOfService;
+  privacyPolicy?: PrivacyPolicy;
+  profileFields?: ProfileFields;
+  landingDirectory?: LandingDirectory;
   appUpdated: boolean;
 };
 
 const localStorageConfig: RLSOptions = {
   states: ["currentUser", "rules", "faqs", "tos", "privacy", "fields", "landing", "appUpdated"],
-  namespace: "@poz.world",
+  namespace: "poz.world",
   namespaceSeparator: "/",
   debounce: 300,
 };

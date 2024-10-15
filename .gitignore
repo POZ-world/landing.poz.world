@@ -25,3 +25,4 @@ yarn-error.log*
 .yarnrc
 .yarnrc.yml
 /dist
+.env

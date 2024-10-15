@@ -4,16 +4,16 @@ import React from 'react';
 import { Component } from 'react';
 import { Button } from 'reactstrap';
 
-type ErrorHandlerProps = PropsWithChildren<{
+type ErrorHandlerProps = Readonly<PropsWithChildren<{
   location?: typeof window.location;
   console?: typeof window.console;
-}>;
+}>>;
 
 type ErrorHandlerState = {
   hasError: boolean;
 };
 
-export default class ErrorHandler extends Component<ErrorHandlerProps, ErrorHandlerState> {
+class ErrorHandler extends Component<ErrorHandlerProps, ErrorHandlerState> {
   public constructor(props: ErrorHandlerProps) {
     super(props);
     this.state = { hasError: false };
@@ -35,11 +35,15 @@ export default class ErrorHandler extends Component<ErrorHandlerProps, ErrorHand
     if (hasError) {
       return (
         <div className="home">
-          <Card className="p-4">
-            <h1>Oops! This is awkward :S</h1>
-            <p>It seems that something went wrong. Try refreshing the page or just click this button.</p>
-            <br />
-            <Button outline color="primary" onClick={() => location.reload()}>Take me back</Button>
+          <Card className="p-4" border="danger" body={true}>
+            <Card.Title>Well fuck...this is awkward... 😖</Card.Title>
+            <Card.Body>
+              <p>It seems that something got fucked up. Try refreshing the page or just click this button.</p>
+              <br />
+            </Card.Body>
+            <Card.Footer>
+              <Button outline color="primary" onClick={() => location.reload()}>Take me back</Button>
+            </Card.Footer>
           </Card>
         </div>
       );
@@ -47,5 +51,16 @@ export default class ErrorHandler extends Component<ErrorHandlerProps, ErrorHand
 
     const { children } = this.props;
     return children;
+  }
+}
+
+
+export default class ErrorHandlerRoute extends Component<ErrorHandlerProps, ErrorHandlerState> {
+  public constructor(props: ErrorHandlerProps) {
+    super(props);
+    this.state = { hasError: false };
+  }
+  public render(): ReactNode {
+    return <ErrorHandler {...this.props} />;
   }
 }

@@ -1,23 +1,24 @@
 import { useState, useEffect } from "react";
-import { Faqs } from "../types/faq";
-import Loading from "../components/loading";
-import fetch from "../lib/api-fetch";
-import FAQsComponent from "../components/faqs";
-import GridBackground from "../components/gridBackground";
-import HeaderElements from "../components/headerElements";
+import { FAQs, FAQ } from "@/faqs/faq";
+import Loading from "@/components/loading";
+import fetch from "@/lib/api-fetch";
+import FAQsComponent from "@/faqs/components/faqs";
+import GridBackground from "@/components/gridBackground";
+import HeaderElements from "@/components/headerElements";
 import React from "react";
 
-export default function FAQs() {
-  const [faqs, setFaqs] = useState<Faqs>({} as Faqs);
-    const [expanded, setExpanded] = useState<number>(-1);
+export default function FAQsPage() {
+  const [faqs, setFaqs] = useState<FAQ[]>([]);
+  const [expanded, setExpanded] = useState<boolean[]>([] as boolean[]);
 
     useEffect(() => {
         const fetchData = async () => {
             try {
                 // Correct fetch function usage without passing state tuple
-                const response = await fetch<Faqs>('/api/vnext/faqs');
+              const response = await fetch<FAQ[]>('/api/vnext/faqs');
                 if (response) {
                     setFaqs(response);
+                    setExpanded(new Array(response.length).fill(false));
                 }
             } catch (error) {
                 console.error("Error fetching FAQ data:", error);
@@ -30,7 +31,15 @@ export default function FAQs() {
     useEffect(() => { }, [expanded]);
 
     const toggleExpanded = (index: number) => {
-        setExpanded(expanded === index ? -1 : index);
+        expanded[index] = !expanded[index];
+        if(expanded[index]) {
+            for(let i = 0; i < expanded.length; i++) {
+                if(i !== index) {
+                    expanded[i] = false;
+                }
+            }
+        }
+        setExpanded(expanded);
     }
 
     return faqs && faqs.length > 0 ? (

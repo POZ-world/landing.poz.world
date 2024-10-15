@@ -1,21 +1,29 @@
-/* 
- * rule.ts
- *     Created: 2024-09-24T00:40:45-04:00
- *    Modified: 2024-09-24T00:40:45-04:00
- *      Author: Justin Paul Chase <justin@justinwritescode.com>
- *   Copyright: © 2024 Justin Paul Chase, All Rights Reserved
- *     License: MIT (https://opensource.org/licenses/MIT)
- */
-
 import { AddressableResource } from "./addressable-resource";
 
-export class Rule implements AddressableResource {
-  id!: number;
-  text!: string;
-  hint!: string;
-  get uri(): string { return `/admin/rules/${this.id}`; }
+export type Rule = AddressableResource & {
+  id: number;
+  text: string;
+  hint: string;
+};
+
+export function Rule({ id, text, hint }: Rule): Rule {
+  return { id, text, hint, uri: `/api/v1/instance/rules/${id}` };
 }
 
-export type Rules = Array<Rule> & {
-  uri: "/api/v1/instance/rules";
-} & AddressableResource; 
+type RulesConstructor<T> = abstract new (...args: Rule[]) => T;
+
+export type Rules = AddressableResource &
+  Array<Rule> &
+  RulesConstructor<RulesImpl>;
+
+class RulesImpl extends Array<Rule> implements AddressableResource {
+  uri: string = "/api/v1/instance/rules";
+
+  constructor(...rules: Rule[]) {
+    super(...rules);
+  }
+}
+
+export function Rules(...rules: Rule[]): Rules {
+  return new RulesImpl(...rules) as Rules;
+}

@@ -98,10 +98,13 @@ export type InstanceThumbnail = {
 
 export type ImageMimeType = "image/png" | "image/jpeg" | "image/webp" | "image/gif";
 
+export type IconType = "icon" | "apple-touch-icon";
+
 export type InstanceIcon = {
     src: string;
     sizes: IconSize;
-    type: ImageMimeType
+    type: ImageMimeType;
+    iconType: IconType;
 }
 
 export type InstanceUrls = {
@@ -123,6 +126,25 @@ export type InstanceStats = {
 };
 
 export type IconSize = "36x36" | "48x48" | "72x72" | "96x96" | "144x144" | "192x192" | "256x256" | "288x288" | "384x384" | "512x512" | "768x768" | "1024x1024";
+
+const IconSizesToTypes = {
+  "16x16": "icon",
+  "32x32": "icon",
+  "48x48": "icon",
+  "57x57": "apple-touch-icon",
+  "60x60": "apple-touch-icon",
+  "72x72": "apple-touch-icon",
+  "76x76": "apple-touch-icon",
+  "114x114": "apple-touch-icon",
+  "120x120": "apple-touch-icon",
+  "144x144": "apple-touch-icon",
+  "152x152": "apple-touch-icon",
+  "167x167": "apple-touch-icon",
+  "180x180": "apple-touch-icon",
+  "1024x1024": "apple-touch-icon",
+};
+
+export const IconSizesToTypes;
 
 export type InstanceVNext = InstanceBase & {
     tagline: string;

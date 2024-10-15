@@ -1,0 +1,6 @@
+{
+    "sonarlint.connectedMode.project": {
+        "connectionId": "poz-world",
+        "projectKey": "POZ-world_landing.poz.world"
+    }
+}

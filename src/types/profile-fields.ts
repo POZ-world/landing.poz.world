@@ -227,7 +227,7 @@ const DefaultProfileFieldValue = createProfileFieldValue(DefaultProfileFieldValu
  * @property {'location'} location - A location field.
  * @property {'integer'} integer - An integer field.
  */
-export type ProfileFieldType = 'string' | 'url' | 'date' | 'datetime' | 'float' | 'boolean' | 'object' | 'location' | 'integer' | 'ft&in' | 'in/cm';
+export type ProfileFieldType = 'string' | 'url' | 'date' | 'datetime' | 'float' | 'boolean' | 'object' | 'location' | 'integer' | 'ft&in' | 'in/cm' | 'lbs/kg';
 
 
 /**
@@ -251,7 +251,20 @@ export type ProfileFieldType = 'string' | 'url' | 'date' | 'datetime' | 'float' 
  * @type {ProfileFieldType[]}
  */
 export const ProfileFieldTypes: ProfileFieldType[] =
-  require("./unions-and-tuples-oh-my").UnionToTuple as UnionToTuple<ProfileFieldType>;  //'string', 'url', 'date', 'datetime', 'float', 'boolean', 'object', 'location', 'integer', 'ft&in', 'in/cm'];
+  /*require("./unions-and-tuples-oh-my").UnionToTuple as UnionToTuple<ProfileFieldType>;  */ [
+    "string",
+    "url",
+    "date",
+    "datetime",
+    "float",
+    "boolean",
+    "object",
+    "location",
+    "integer",
+    "ft&in",
+    "in/cm",
+    "lbs/kg",
+  ];
 
 /**
  * Represents the JSON structure of an API profile field.

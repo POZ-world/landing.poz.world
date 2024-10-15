@@ -32,17 +32,11 @@ jobs:
         name: MinVer
         id: minver
         with:
-          # Optional. Specifies which part of the version to auto-increment.
           auto-increment: patch
-          # Optional. Sets custom build metadata for your semantic version.
           build-metadata: ${{ github.sha }}
-          # Optional. Specifies the default pre-release phase.
           default-pre-release-identifiers: preview.0
-          # Optional. Specifies the minimum version to use when no tags exist.
           minimum-major-minor: 0.0
-          # Optional. Specifies the prefix of the tags
           tag-prefix: 'v'
-          # Optional. Specifies the log level.
           verbosity: info
 
       # - name: Debug Environment

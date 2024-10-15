@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    "module": "AMD",
+    "target": "esnext",
+    "module": "esnext",
     "moduleResolution": "node",
     "strict": true,
     "jsx": "react-jsx",
@@ -11,7 +11,10 @@
     "outDir": "./dist",
     "rootDir": "./",
     "baseUrl": "./",
-    "outFile": "./dist/bundle.js",
+    "noEmit": false,
+    "allowJs": true,
+    "declaration": true,
+    "declarationDir": "./dist",
     "paths": {
       "emoji-mart/dist/utils/data": [
         "./node_modules/emoji-mart-lazyload/dist/utils/data"
@@ -22,9 +25,7 @@
       "emoji-mart/": [
         "./node_modules/emoji-mart-lazyload/dist/"
       ],
-      "emoji_compressed/": [
-        "@poz-world/poz.world/mastodon/features/emoji/emoji_compressed"
-      ],
+      "@tsconfig/*": ["./node_modules/@tsconfig/*"],
       "@/*": ["src/*"],
     },
     "resolveJsonModule": true,
@@ -38,10 +39,16 @@
     "src/**/*.svg",
     "src/**/*.png",
     "src/**/*.jpg",
-    "src/**/*.jpeg",
+    "src/**/*.jpeg", 
   ],
   "exclude": [
     "node_modules",
     "dist"
-  ]
+  ],
+  "buildOptions": {
+    "force": true,
+    "incremental": true,
+    "verbose": true,
+    "traceResolution": true
+  }
 }

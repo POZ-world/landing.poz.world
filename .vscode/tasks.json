@@ -1,41 +1,119 @@
 {
-    "version": "2.0.0",
-    "tasks": [
-        {
-            "label": "Run landing.poz.world",
-            "command": "npm",
-            "args": [
-                "run",
-                "start:local"
-            ],
-            "type": "process",
-            "options": {
-                "env": {
-                    "PATH": "/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin",
-                    "REACT_APP_VERSION": "0.0.1-charlie"
-                },
-                "cwd": "${workspaceFolder}",
-                "shell": {
-                    "executable": "bash"
-                }
-            }
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "npm install",
+      "command": "npm",
+      "args": [
+        "install",
+        "--force"
+      ],
+      "type": "shell"
+    },
+    {
+      "label": "Run landing.poz.world",
+      "command": "npm",
+      "args": [
+        "run",
+        "start:local"
+      ],
+      "type": "process",
+      "options": {
+        "env": {
+          "PATH": "/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin",
+          "REACT_APP_VERSION": "0.0.1-charlie"
         },
-        {
-            "label": "Build landing.poz.world",
-            "command": "npm",
-            "args": [
-                "run",
-                "build"
-            ],
-        },
-        {
-            "dependsOn": "Build landing.poz.world",
-            "label": "Package landing.poz.world",
-            "command": "npm",
-            "args": [
-                "run",
-                "build"
-            ],
+        "cwd": "${workspaceFolder}",
+        "shell": {
+          "executable": "bash"
         }
-    ]
+      }
+    },
+    {
+      "label": "Build landing.poz.world",
+      "command": "npm",
+      "args": [
+        "run",
+        "build"
+      ],
+      "type": "process",
+      "options": {
+        "env": {
+          "PATH": "/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin",
+          "REACT_APP_VERSION": "0.0.1-charlie"
+        },
+        "cwd": "${workspaceFolder}",
+        "shell": {
+          "executable": "bash"
+        }
+      }
+    },
+    {
+      "label": "Build landing.poz.world:local",
+      "command": "npm",
+      "args": [
+        "run",
+        "build:local"
+      ],
+      "type": "process",
+      "options": {
+        "env": {
+          "PATH": "/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin",
+          "REACT_APP_VERSION": "0.0.1-charlie"
+        },
+        "cwd": "${workspaceFolder}",
+        "shell": {
+          "executable": "bash"
+        }
+      }
+    },
+    {
+      "dependsOn": "Build landing.poz.world",
+      "label": "Package landing.poz.world",
+      "command": "npm",
+      "args": [
+        "run",
+        "build"
+      ],
+    },
+    {
+      "label": "Start landing.poz.world:local",
+      "command": "npm",
+      "args": [
+        "run",
+        "start:local"
+      ],
+      "type": "process",
+      "options": {
+        "env": {
+          "PATH": "/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:~/.nvm/versions/node/v22.9.0/bin/serve",
+          "REACT_APP_VERSION": "0.0.1-charlie",
+          "REACT_APP_PUBLIC_URL": "http://landing.poz.world:5000",
+          "REACT_APP_PORT": "5000",
+          "REACT_APP_MASTODON_URL": "http://poz.world:3000",
+          "PORT": "5000"
+        },
+        "cwd": "${workspaceFolder}",
+        "shell": {
+          "executable": "bash"
+        }
+      }
+    },
+    {
+      "dependsOn": "Build landing.poz.world:production",
+      "label": "Serve landing.poz.world:production",
+      "command": "serve",
+      "type": "shell",
+      "options": {
+        "env": {
+          "PATH": "/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:~/.nvm/versions/node/v22.9.0/bin/serve",
+          "REACT_APP_VERSION": "0.0.1-charlie"
+        },
+        "cwd": "${workspaceFolder}",
+        "shell": {
+          "executable": "bash"
+        }
+      }
+    }
+  ]
 }

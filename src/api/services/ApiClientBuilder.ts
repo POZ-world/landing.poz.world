@@ -1,31 +1,23 @@
-// import type { ApiClient } from './httpClient';
-// import type { GetState } from '../../container/types';
+import type { GetState } from '../../container/types';
+import { Axios, AxiosInstance } from "axios";
+import * as axios from 'axios';
+import { ApiClient } from '../apiClient';
+import api from '@/api';
 
-// const apiClients: Record<string, ApiClient> = {};
+const apiClients: Record<string, ApiClient> = {};
 
+export const buildApiClient = (config: axios.AxiosRequestConfig) => {
 
+  const axios = new Axios(config) as AxiosInstance;
+  const apiClient = new ApiClient(axios) as ApiClient & Record<string, any | ((...args: any[]) => any)>;
 
-// // const isGetState = (getStateOrSelectedServer: GetState | ServerWithId): getStateOrSelectedServer is GetState =>
-// //   typeof getStateOrSelectedServer === 'function';
-// // const getSelectedServerFromState = (getState: GetState): ServerWithId => {
-// //   const { selectedServer } = getState();
-// //   if (!hasServerData(selectedServer)) {
-// //     throw new Error('There\'s no selected server or it is not found');
-// //   }
+  apiClient["fcku"] = "fcku";
 
-// //   return selectedServer;
-// // };
+  apiClient["fuck"] = async (endpoint: string, getState?: GetState) => {
+    return apiClient.get(endpoint);
+  };
 
-// export const buildApiClient = (httpClient: ApiClient) => (getStateOrSelectedServer: GetState | ServerWithId) => {
-//   const { url: baseUrl, apiKey } = isGetState(getStateOrSelectedServer)
-//     ? getSelectedServerFromState(getStateOrSelectedServer)
-//     : getStateOrSelectedServer;
-//   const serverKey = `${apiKey}_${baseUrl}`;
+  return apiClient;
+};
 
-//   const apiClient = apiClients[serverKey] ?? new ShlinkApiClient(httpClient, { apiKey, baseUrl });
-//   apiClients[serverKey] = apiClient;
-
-//   return apiClient;
-// };
-
-// export type ShlinkApiClientBuilder = ReturnType<typeof buildApiClient>;
+export type ApiClientBuilder = ReturnType<typeof buildApiClient>;

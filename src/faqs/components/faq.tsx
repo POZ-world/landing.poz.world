@@ -1,17 +1,18 @@
 import { Disclosure, DisclosureButton, DisclosurePanel, Transition } from '@headlessui/react';
 import { MinusIcon, PlusIcon } from '@heroicons/react/24/solid';
-import { FAQ as FAQType } from '../types/faq';
+import { FAQ as FAQType } from '@/faqs/faq';
 import { marked } from 'marked';
 import React from "react";
+import { memo } from 'react';
 
-export type FAQProps = {
+export type FAQProps = Readonly<{
   faq: FAQType;
-  expanded: number | null;
+  expanded: boolean[];
   toggleExpanded: (index: number) => void;
-}
+}>;
 
-export default function FAQ({ faq, expanded, toggleExpanded }: FAQProps) {
-  const isOpen = faq.number === expanded;
+export default function FAQComponent({ faq, expanded, toggleExpanded }: FAQProps) {
+  const isOpen = expanded[faq.number - 1];
 
   return (
     <Disclosure as="div" key={faq.number + '. ' + faq.question} className="pt-6" defaultOpen={isOpen}>

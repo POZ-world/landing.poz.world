@@ -1,7 +1,7 @@
-import { LandingDirectory } from "../types/landing-directory";
+import { LandingDirectory } from "@/landing-directory/types/landing-directory";
 import AccountStack from "./accountStack";
 import { useEffect, useState } from "react";
-import fetch from "../lib/api-fetch";
+import fetch from "@/lib/api-fetch";
 import React from "react";
 
 // type AccountStacksParams = {
@@ -45,7 +45,7 @@ export default function AccountStacks(/*{ slideshows, setSlideshows, useEffect }
     return (
         <div className="flex-auto hidden sm:block">
             <div className="flex">
-                <div className="md:flex-1 md:my-auto hidden md:block">
+                {/* <div className="md:flex-1 md:my-auto hidden md:block">
                     <AccountStack start={0} end={1} directory={directory} slideshows={slideshows} />
                 </div>
 
@@ -55,7 +55,7 @@ export default function AccountStacks(/*{ slideshows, setSlideshows, useEffect }
 
                 <div className="md:flex-1">
                     <AccountStack start={3} end={5} directory={directory} slideshows={slideshows} />
-                </div>
+                </div> */}
             </div>
         </div>
     );

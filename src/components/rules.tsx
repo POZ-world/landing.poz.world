@@ -18,7 +18,7 @@ export default function Rules({ rules, expanded, toggleExpanded }: RulesProps): 
   return (
     <div className="my-24">
       <ul className="grid gap-x-8 gap-y-12 my-16 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
-        {rules.map((rule: Rule, index: number) => (
+        {rules!.map((rule: Rule, index: number) => (
           <li key={index} className="text-md mb-4">
             <span
               className="block text-2xl mb-4 cursor-pointer"

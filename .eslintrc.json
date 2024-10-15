@@ -1,40 +1,22 @@
 {
   "settings": {
+    "react": {
+      "version": "detect"
+    },
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+      }
+    }
   },
   "globals": {
     "window": true,
     "document": true,
     "localStorage": true
   },
-  "ecmaFeatures": {
-    "modules": true,
-    "arrowFunctions": true,
-    "binaryLiterals": true,
-    "jsx": true,
-    "objectLiteralComputedProperties": true,
-    "superInFunctions": true,
-    "classes": true,
-    "blockBindings": true,
-    "defaultParams": true,
-    "destructuring": true,
-    "experimentalObjectRestSpread": true,
-    "forOf": true,
-    "generators": true,
-    "globalReturn": true,
-    "impliedStrict": true,
-    "objectLiteralDuplicateProperties": true,
-    "objectLiteralShorthandMethods": true,
-    "objectLiteralShorthandProperties": true,
-    "octalLiterals": true,
-    "regexUFlag": true,
-    "regexYFlag": true,
-    "restParams": true,
-    "spread": true,
-    "templateStrings": true,
-    "unicodeCodePointEscapes": true
-  },
   "plugins": [
-    "react"
+    "react",
+    "import"
   ],
   "extends": [
   ],
@@ -46,8 +28,15 @@
       "rules": {
         "no-console": "off",
         "no-undef": "off",
-        "no-unused-vars":"off"
+        "no-unused-vars":"off",
+        "import/no-default-export": "off"
       }
     }
-  ]
+  ],
+  "rules": {
+    "no-console": "off",
+    "no-undef": "off",
+    "no-unused-vars":"off",
+    "import/no-default-export": "off"
+  }
 }

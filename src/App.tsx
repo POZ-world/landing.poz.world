@@ -1,16 +1,17 @@
 import './App.css';
-import FAQs from './routes/faqs';
+import FAQs from '@/faqs/faqsPage';
 import Privacy from './routes/privacy';
 import Layout from './components/layout';
 import Rules from './routes/rules';
 import About from './routes/about';
 import Terms from './routes/terms';
-import EditProfileFields from './routes/edit-profile-fields';
+import EditProfileFields from '@/routes/edit-profile-fields';
 import { Route, Routes } from 'react-router-dom';
-import { AppUpdateBanner } from './components/appUpdateBanner';
-import { resetAppUpdate } from './app/reducers/appUpdates';
-import { forceUpdate } from './utils/helpers/sw';
-import { NotFound } from './components/notFound';
+import { AppUpdateBanner } from '@/components/appUpdateBanner';
+import { resetAppUpdate } from '@/app/reducers/appUpdates';
+import { forceUpdate } from '@/utils/helpers/sw';
+import { NotFound } from '@/components/notFound';
+import ErrorHandlerRoute from '@/components/errorHandler';
 
 export declare interface AppProps {
   //   fetchCurrentUser: () => void;
@@ -30,7 +31,7 @@ export declare interface AppProps {
 
 const appProps: AppProps = { appUpdated: false, resetAppUpdate }
 
-function App({ appUpdated, resetAppUpdate }: AppProps) {
+function App({ appUpdated, resetAppUpdate }: AppProps = appProps) {
   return (
     <>
       <Layout>

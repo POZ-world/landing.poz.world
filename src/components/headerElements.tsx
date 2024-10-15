@@ -28,12 +28,12 @@ export default function HeaderElements({ title }: HeaderElementsProps) {
 
     return instance && instance.icons && instance.icons.length > 0 ? (
         <Helmet>
-            <title>{instance.title}</title>
+            <title>{title} - {instance.title}</title>
             <meta name="description" content={instance.description} />
             <meta property="og:title" content={instance.title} />
             <meta property="og:description" content={instance.description} />
             {instance.icons.map((icon, index) => (
-                <link key={index} rel="icon" type={icon.type} href={icon.src} sizes={icon.sizes} />
+              <link key={icon.src} rel={icon.iconType || 'icon'} type={icon.type} href={icon.src} sizes={icon.sizes} />
             ))}
         </Helmet>
     ) : <></>;

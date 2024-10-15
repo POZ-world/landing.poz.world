@@ -1,5 +1,5 @@
 import axios from "./axios";
-import { MASTODON_URL } from "../mastodon-url";
+import MASTODON_URL from "../constants/mastodon-url";
 import { localStorage } from "./extended-storage";
 import { useEffect } from "react";
 import { ActionOf } from "@/types/delegates";

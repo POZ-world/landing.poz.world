@@ -1,6 +1,6 @@
-export { FAQ as Faq, Faqs } from "./faq";
+export { FAQ, FAQs } from "@/faqs/faq";
 export { InstanceVNext } from "./instance";
-export { LandingDirectory } from "./landing-directory";
+export { LandingDirectory } from "@/landing-directory";
 export { Links, Action, LinkTarget, LinkButton, Link } from "./links";
 export { ProfileFields } from "./profile-fields";
 export { Rule, Rules } from "./rule";
@@ -12,3 +12,5 @@ export {
   Description,
 } from "./settings";
 export { Account } from "@poz-world/poz.world/mastodon/models/account";
+export { AddressableResource } from "./addressable-resource";
+export {}

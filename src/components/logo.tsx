@@ -1,4 +1,4 @@
-import { MASTODON_URL } from "../mastodon-url";
+import MASTODON_URL from "../constants/mastodon-url";
 import React from "react";
 
 export default function Logo() {

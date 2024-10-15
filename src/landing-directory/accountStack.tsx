@@ -1,7 +1,7 @@
 import React from 'react';
-import Slide from './slide';
+import Slide from '../components/slide';
 import { SLIDESHOW_CONTAINER_CLASS, SLIDESHOW_ANCHOR_CLASS, SLIDESHOW_IMAGE_SPACING } from '../lib/constants';
-import { LandingDirectory } from '../types/landing-directory';
+import { LandingDirectory } from '@/landing-directory';
 
 type AccountStackProps = {
   start: number;

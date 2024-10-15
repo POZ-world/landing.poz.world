@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, LinkButton } from "../types/links";
-import { MASTODON_URL } from "../mastodon-url";
+import MASTODON_URL from "../constants/mastodon-url";
 import Hyperlink from "./hyperlink";
 import { logOut } from "@poz-world/poz.world/mastodon/utils/log_out"
 

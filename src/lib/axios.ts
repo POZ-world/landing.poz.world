@@ -1,5 +1,5 @@
 import { Axios, AxiosRequestConfig } from "axios";
-import { MASTODON_URL } from "src/mastodon-url";
+import MASTODON_URL from "@/constants/mastodon-url";
 
 const axiosConfig = <T = undefined>(): AxiosRequestConfig<T> => {
   return { baseURL: MASTODON_URL };

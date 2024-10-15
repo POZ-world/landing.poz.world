@@ -1,4 +1,4 @@
-const PREFIX = 'shlink';
+const PREFIX = 'poz.world';
 const buildPath = (path: string) => `${PREFIX}.${path}`;
 
 export class LocalStorage {

@@ -59,8 +59,8 @@ class ExtendedStorage implements Storage {
 
     get<T>(key: string): T | undefined {
         const item = this.getItem(key);
-        if (item) {
-            return JSON.parse(item);
+        if (item !== null) {
+            return JSON.parse(item) as T;
         }
         return undefined;
     }

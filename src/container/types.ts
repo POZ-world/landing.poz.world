@@ -1,4 +1,4 @@
-import { Faqs as FAQs } from "@/types";
+import { FAQs } from "@/types";
 import { TermsOfService } from "@/types";
 import { PrivacyPolicy } from "@/types";
 import { ProfileFields } from "@/types";

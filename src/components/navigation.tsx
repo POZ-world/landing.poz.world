@@ -1,5 +1,5 @@
-import { MASTODON_URL } from "../mastodon-url";
-import { PUBLIC_URL } from "../public-url";
+import MASTODON_URL from "../constants/mastodon-url";
+import PUBLIC_URL from "../constants/public-url";
 import Logo from "./logo";
 import { Link, LinkArray } from "../types/links";
 import LinkRow from "./linkrow";

@@ -21,7 +21,7 @@ export const AppUpdateBanner = forwardRef<HTMLElement, AppUpdateBannerProps>(({ 
   }, [forceUpdate, setUpdating]);
 
   return (
-    <Alert className="app-update-banner" isOpen={isOpen} toggle={toggle} tag={SimpleCard} color="secondary" innerRef={ref}>
+    <Alert className="app-update-banner" isOpen={isOpen} toggle={toggle} tag={SimpleCard} color="secondary" innerRef={ref} fade={false}>
       <h4 className="mb-4">This app has just been updated!</h4>
       <p className="mb-0">
         Restart it to enjoy the new features.

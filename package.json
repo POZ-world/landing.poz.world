@@ -17,10 +17,11 @@
     "build:local": "REACT_APP_VERSION=${REACT_APP_VERSION:-'0.0.1-alpha'} PATH=./node_modules/.bin:${PATH} REACT_APP_MASTODON_URL=${REACT_APP_MASTODON_URL:-'http://poz.world:3000'} REACT_APP_PUBLIC_URL=${REACT_APP_PUBLIC_URL:-'http://landing.poz.world:5001'} PORT=${PORT:-'5001'} ts-node --esm node_modules/.bin/craco build",
     "build:production": "PATH=./node_modules/.bin:${PATH} REACT_APP_MASTODON_URL=${REACT_APP_MASTODON_URL:-'https://poz.world'} REACT_APP_PUBLIC_URL=${REACT_APP_PUBLIC_URL:-'https://landing.poz.world'} PORT=${PORT:-'5001'} CI=${CI:-'false'} craco build",
     "eject": "PATH=./node_modules/.bin:${PATH} REACT_APP_MASTODON_URL=http://poz.world:3000 REACT_APP_PUBLIC_URL=http://localhost:5001 PORT=5001 craco eject",
-    "start:local": "REACT_APP_VERSION=${REACT_APP_VERSION:-'0.0.1-alpha'} PATH=./node_modules/.bin:${PATH} REACT_APP_MASTODON_URL=${REACT_APP_MASTODON_URL:-'http://poz.world:3000'} REACT_APP_PUBLIC_URL=${REACT_APP_PUBLIC_URL:-'http://landing.poz.world:5001'} PORT=${PORT:-'5001'} craco start",
-    "start:local:react": "REACT_APP_VERSION=${REACT_APP_VERSION:-'0.0.1-alpha'} PATH=./node_modules/.bin:${PATH} REACT_APP_MASTODON_URL=${REACT_APP_MASTODON_URL:-'http://poz.world:3000'} REACT_APP_PUBLIC_URL=${REACT_APP_PUBLIC_URL:-'http://landing.poz.world:5001'} PORT=${PORT:-'5001'} react-scripts start",
+    "start:local": "REACT_APP_VERSION=${REACT_APP_VERSION:-'0.0.1-alpha'} PATH=./node_modules/.bin:${PATH} REACT_APP_MASTODON_URL=${REACT_APP_MASTODON_URL:-'http://poz.world:3000'} REACT_APP_PUBLIC_URL=${REACT_APP_PUBLIC_URL:-'http://landing.poz.world:5001'} PORT=${PORT:-'5001'} npm run build && craco start",
+    "start:local:react": "REACT_APP_VERSION=${REACT_APP_VERSION:-'0.0.1-alpha'} PATH=./node_modules/.bin:${PATH} REACT_APP_MASTODON_URL=${REACT_APP_MASTODON_URL:-'http://poz.world:3000'} REACT_APP_PUBLIC_URL=${REACT_APP_PUBLIC_URL:-'http://landing.poz.world:5001'} PORT=${PORT:-'5001'} npm run build && react-scripts start",
     "start:production": "PATH=./node_modules/.bin:${PATH} REACT_APP_MASTODON_URL=${REACT_APP_MASTODON_URL:-'https://poz.world'} REACT_APP_PUBLIC_URL=${REACT_APP_PUBLIC_URL:-'https://landing.poz.world'} PORT=${PORT:-'5001'} CI=${CI:-'false'} craco start",
-    "test": "PATH=./node_modules/.bin:${PATH} REACT_APP_MASTODON_URL=http://poz.world:3000 REACT_APP_PUBLIC_URL=http://localhost:5001 PORT=5001 craco test"
+    "test": "PATH=./node_modules/.bin:${PATH} REACT_APP_MASTODON_URL=http://poz.world:3000 REACT_APP_PUBLIC_URL=http://localhost:5001 PORT=5001 craco test",
+    "serve": "PATH=./node_modules/.bin:${PATH} REACT_APP_MASTODON_URL=http://poz.world:3000 REACT_APP_PUBLIC_URL=http://localhost:5001 PORT=5001 npm serve"
   },
   "eslintConfig": {
     "extends": [
@@ -48,6 +49,7 @@
     "@gamestdio/websocket": "^0.3.2",
     "@headlessui/react": "^2.1.9",
     "@heroicons/react": "^2.1.5",
+    "@poz-world/components": "^0.0.1-alpha.0",
     "@poz-world/poz.world": "^4.3.0-2024-10-10",
     "@reduxjs/toolkit": "^2.2.8",
     "@shlinkio/data-manipulation": "^1.0.3",
@@ -64,7 +66,6 @@
     "css-loader": "^7.1.2",
     "detect-passive-events": "^2.0.3",
     "emoji-mart": "npm:emoji-mart-lazyload@latest",
-    "eslint": "^9.12.0",
     "eslint-loader": "^4.0.2",
     "eslint-webpack-plugin": "^4.2.0",
     "fetch": "^1.1.0",
@@ -132,18 +133,21 @@
     "compression-webpack-plugin": "^11.1.0",
     "craco": "^0.0.3",
     "emoji-mart-lazyload": "^3.0.1-j",
+    "eslint": "^9.12.0",
     "eslint-config-love": "^84.1.0",
     "eslint-plugin-jsdoc": "^50.3.1",
     "eslint-plugin-regexp": "^2.6.0",
     "eslint-plugin-sonarjs": "^2.0.3",
     "eslint-plugin-tsdoc": "^0.3.0",
     "eslint-plugin-unicorn": "^56.0.0",
+    "jest": "^29.7.0",
     "postcss": "^8.4.47",
     "postcss-apply": "^0.12.0",
     "react-redux": "^9.1.2",
     "reactstrap": "^9.2.3",
     "redux": "^5.0.1",
     "tailwindcss": "^3.4.13",
+    "ts-jest": "^29.2.5",
     "ts-loader": "^9.5.1",
     "typescript": "^5.6.2",
     "typescript-eslint": "^8.8.1",
@@ -164,6 +168,22 @@
     ]
   },
   "resolutions": {
-    "emoji-mart": "npm:emoji-mart-lazyload@latest"
+    "emoji-mart": "npm:emoji-mart-lazyload@latest",
+    "kind-of": "^6.0.3",
+    "webpack/terser-webpack-plugin": "^4.2.3"
+  },
+  "peerDependenciesMeta": {
+    "react": {
+      "optional": true
+    },
+    "react-dom": {
+      "optional": true
+    },
+    "react-router-dom": {
+      "optional": true
+    }
+  },
+  "overrides": {
+    "glob": "^11.0.0"
   }
 }

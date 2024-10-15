@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
-import { InstanceVNext } from "../types/instance";
-import fetch from "../lib/api-fetch";
-import Loading from "../components/loading";
-import InstanceStats from "../components/instanceStats";
-import GridBackground from "../components/gridBackground";
-import { LandingDirectory } from "../types/landing-directory";
-import AccountStacks from "../components/accountStacks";
-import AccountList from "../components/accountList";
+import { InstanceVNext } from "@/types/instance";
+import fetch from "@/lib/api-fetch";
+import Loading from "@/components/loading";
+import InstanceStats from "@/components/instanceStats";
+import GridBackground from "@/components/gridBackground";
+import { LandingDirectory } from "@/landing-directory/types/landing-directory";
+import AccountStacks from "@/landing-directory/accountStacks";
+import AccountList from "@/landing-directory/accountList";
 import { DEFAULT_DIRECTORY_LIMIT } from "../lib/constants";
 import React from "react";
 
